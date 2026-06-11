@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paie BTP Mayotte - Tarifs & Devis</title>
+  <title>NürPay · Paie BTP Mayotte - Tarifs & Devis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
+   :root {
       --navy:        #0D1F35;
       --navy-mid:    #1A3352;
       --blue:        #1A5FA5;
@@ -29,14 +29,14 @@
       --radius-lg:   14px;
       --shadow:      0 1px 4px rgba(13,31,53,.06), 0 4px 16px rgba(13,31,53,.05);
     }
-
+ 
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
     }
-
+ 
     /* ── HEADER ── */
     .header {
       background: var(--navy);
@@ -55,7 +55,28 @@
       max-width: 780px;
       margin: 0 auto;
       padding: 28px 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
+    .header-logo {
+      flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #1CCFE3 0%, #0EA8BF 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 26px;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(14,168,191,.40), inset 0 1px 0 rgba(255,255,255,.20);
+      letter-spacing: -.01em;
+    }
+    .header-text { flex: 1; }
     .header-eyebrow {
       font-size: 11px;
       font-weight: 500;
@@ -86,14 +107,14 @@
       pointer-events: none;
       user-select: none;
     }
-
+ 
     /* ── LAYOUT ── */
     .main {
       max-width: 780px;
       margin: 0 auto;
       padding: 28px 20px 60px;
     }
-
+ 
     /* ── SECTION LABEL ── */
     .section-label {
       font-size: 10.5px;
@@ -105,7 +126,7 @@
       margin-top: 28px;
     }
     .section-label:first-child { margin-top: 0; }
-
+ 
     /* ── TIER GRID ── */
     .tier-grid {
       display: grid;
@@ -134,7 +155,7 @@
     .tier-unit  { font-size: 11px; color: var(--text-3); margin-top: 2px; }
     .tier-range { font-size: 11px; font-weight: 600; color: var(--blue); margin-top: 5px; }
     .tier-card.active .tier-range { color: var(--amber-dark); }
-
+ 
     /* ── CONTROLS ── */
     .controls {
       background: var(--surface);
@@ -195,7 +216,7 @@
       margin-left: 6px;
       vertical-align: middle;
     }
-
+ 
     /* ── RESULT CARD ── */
     .result-card {
       background: var(--surface);
@@ -230,7 +251,7 @@
       line-height: 1;
     }
     .note { font-size: 11px; color: var(--text-3); margin-top: 12px; line-height: 1.6; }
-
+ 
     /* ── BUTTONS ── */
     .btn-primary {
       display: block;
@@ -263,7 +284,7 @@
       transition: background .12s;
     }
     .btn-ghost:hover { background: var(--bg); }
-
+ 
     /* ── DEVIS FORM ── */
     .devis-panel {
       display: none;
@@ -310,7 +331,7 @@
     .tva-row label { font-size: 13px; color: var(--text-2); cursor: pointer; display: flex; align-items: center; gap: 6px; }
     .form-section-sep { border: none; border-top: 1px dashed var(--border-dark); margin: 18px 0; }
     .save-note { font-size: 11px; color: var(--text-3); margin-top: 14px; }
-
+ 
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -322,50 +343,55 @@
   </style>
 </head>
 <body>
-
+ 
 <!-- ── HEADER ── -->
 <div class="header">
   <div class="header-stripe"></div>
   <div class="header-inner">
-    <div class="header-eyebrow">BTP · Mayotte · CSSM</div>
-    <h1 class="header-title">Tarifs &amp; Devis<br>Fiches de paie</h1>
-    <p class="header-sub">Simulez votre tarification mensuelle et générez un devis professionnel en quelques secondes.</p>
+    <div class="header-logo">
+      <div class="logo-icon">N</div>
+    </div>
+    <div class="header-text">
+      <div class="header-eyebrow">BTP · Mayotte · CSSM</div>
+      <h1 class="header-title">Tarifs &amp; Devis<br>Paie • CSSM • Gestion RH</h1>
+      <p class="header-sub">Simulez votre tarification mensuelle et générez un devis professionnel en quelques secondes.</p>
+    </div>
   </div>
   <div class="hard-hat">🪖</div>
 </div>
-
+ 
 <!-- ── MAIN ── -->
 <main class="main">
-
+ 
   <!-- GRILLE TARIFAIRE -->
   <p class="section-label">Grille tarifaire par volume</p>
   <div class="tier-grid" id="tier-grid">
-    <div class="tier-card" data-min="1"  data-max="5"   data-rate="30">
+    <div class="tier-card" data-min="1"  data-max="5"   data-rate="35">
       <div class="tier-name">Micro</div>
-      <div class="tier-price">30 €</div>
+      <div class="tier-price">35 €</div>
       <div class="tier-unit">/ bulletin</div>
       <div class="tier-range">1 à 5 fiches</div>
     </div>
-    <div class="tier-card" data-min="6"  data-max="10"  data-rate="25">
+    <div class="tier-card" data-min="6"  data-max="10"  data-rate="30">
       <div class="tier-name">Artisan</div>
-      <div class="tier-price">25 €</div>
+      <div class="tier-price">30 €</div>
       <div class="tier-unit">/ bulletin</div>
       <div class="tier-range">6 à 10 fiches</div>
     </div>
-    <div class="tier-card" data-min="11" data-max="20"  data-rate="20">
+    <div class="tier-card" data-min="11" data-max="20"  data-rate="25">
       <div class="tier-name">PME</div>
-      <div class="tier-price">20 €</div>
+      <div class="tier-price">25 €</div>
       <div class="tier-unit">/ bulletin</div>
       <div class="tier-range">11 à 20 fiches</div>
     </div>
-    <div class="tier-card" data-min="21" data-max="999" data-rate="15">
+    <div class="tier-card" data-min="21" data-max="999" data-rate="20">
       <div class="tier-name">Volume</div>
-      <div class="tier-price">15 €</div>
+      <div class="tier-price">20 €</div>
       <div class="tier-unit">/ bulletin</div>
       <div class="tier-range">21 fiches et +</div>
     </div>
   </div>
-
+ 
   <!-- SIMULATEUR -->
   <p class="section-label">Simulateur</p>
   <div class="controls">
@@ -379,12 +405,22 @@
     <div class="opt-row">
       <input type="checkbox" id="opt-setup" onchange="update()">
       <label class="opt-label" for="opt-setup">Frais de mise en place <span class="badge">1 fois</span></label>
-      <span class="opt-price">80 €</span>
+      <span class="opt-price" id="opt-setup-price">120 €</span>
     </div>
     <div class="opt-row">
       <input type="checkbox" id="opt-decl" onchange="update()">
-      <label class="opt-label" for="opt-decl">Déclarations sociales CSSM / mois</label>
-      <span class="opt-price">20 €</span>
+      <label class="opt-label" for="opt-decl">Déclarations sociales CSSM &amp; contrôle cotisations / mois</label>
+      <span class="opt-price">35 €</span>
+    </div>
+    <div class="opt-row">
+      <input type="checkbox" id="opt-cp" onchange="update()">
+      <label class="opt-label" for="opt-cp">Gestion congés payés (acquisition, suivi, solde) / mois</label>
+      <span class="opt-price" id="opt-cp-price">10 € / salarié</span>
+    </div>
+    <div class="opt-row">
+      <input type="checkbox" id="opt-rh" onchange="update()">
+      <label class="opt-label" for="opt-rh">Assistance RH (questions, attestations, suivi admin) / mois</label>
+      <span class="opt-price">40 €</span>
     </div>
     <div class="opt-row">
       <input type="checkbox" id="opt-urgent" onchange="update()">
@@ -393,19 +429,21 @@
     </div>
     <div class="opt-row">
       <input type="checkbox" id="opt-annuel" onchange="update()">
-      <label class="opt-label" for="opt-annuel">Régularisation annuelle (solde CP, etc.)</label>
-      <span class="opt-price">50 €</span>
+      <label class="opt-label" for="opt-annuel">Régularisation annuelle (solde CP, contrôle cotisations, rappels)</label>
+      <span class="opt-price" id="opt-annuel-price">80 €</span>
     </div>
   </div>
-
+ 
   <!-- RÉSULTAT -->
   <p class="section-label">Résultat</p>
   <div class="result-card">
-    <div class="result-line"><span>Bulletins (<span id="r-nb">3</span> × <span id="r-rate">30</span> €)</span><span id="r-base">90 €</span></div>
-    <div class="result-line" id="line-setup"  style="display:none"><span>Mise en place (1 fois)</span><span>80 €</span></div>
-    <div class="result-line" id="line-decl"   style="display:none"><span>Déclarations sociales CSSM</span><span>20 €</span></div>
+    <div class="result-line"><span>Bulletins (<span id="r-nb">3</span> × <span id="r-rate">35</span> €)</span><span id="r-base">105 €</span></div>
+    <div class="result-line" id="line-setup"  style="display:none"><span>Mise en place (1 fois)</span><span id="r-setup">120 €</span></div>
+    <div class="result-line" id="line-decl"   style="display:none"><span>Déclarations sociales CSSM</span><span>35 €</span></div>
+    <div class="result-line" id="line-cp"     style="display:none"><span>Gestion congés payés (<span id="r-cp-nb">3</span> salariés)</span><span id="r-cp">-</span></div>
+    <div class="result-line" id="line-rh"     style="display:none"><span>Assistance RH</span><span>40 €</span></div>
     <div class="result-line" id="line-urgent" style="display:none"><span>Majoration urgence</span><span id="r-urgent">-</span></div>
-    <div class="result-line" id="line-annuel" style="display:none"><span>Régularisation annuelle</span><span>50 €</span></div>
+    <div class="result-line" id="line-annuel" style="display:none"><span>Régularisation annuelle</span><span id="r-annuel">80 €</span></div>
     <div class="result-total">
       <span class="result-total-label">Total HT</span>
       <span class="result-total-val" id="r-total">90 €</span>
@@ -417,12 +455,12 @@
     <button class="btn-primary" onclick="toggleDevis()">✦ Créer un devis à partir de ces tarifs</button>
     <button class="btn-ghost" onclick="printSim()">Imprimer ce récapitulatif</button>
   </div>
-
+ 
   <!-- FORMULAIRE DEVIS -->
   <p class="section-label" id="devis-anchor" style="display:none">Devis</p>
   <div class="devis-panel" id="devis-panel">
     <div class="devis-panel-title">Informations du devis</div>
-
+ 
     <!-- Prestataire -->
     <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px">Vos coordonnées <span style="font-weight:400;text-transform:none;letter-spacing:0">(sauvegardées localement)</span></div>
     <div class="form-grid">
@@ -447,9 +485,9 @@
         <input class="form-input" id="pre-email" type="email" placeholder="vous@exemple.com" oninput="savePresta()">
       </div>
     </div>
-
+ 
     <hr class="form-section-sep">
-
+ 
     <!-- Client + meta -->
     <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px">Client &amp; Références</div>
     <div class="form-grid">
@@ -485,74 +523,101 @@
         </div>
       </div>
     </div>
-
+ 
     <hr class="form-section-sep">
-
+ 
     <div class="form-group">
       <label class="form-label" for="dv-notes">Notes / Conditions particulières</label>
       <textarea class="form-input" id="dv-notes" placeholder="Paiement à 30 jours fin de mois. Acompte de 30 % à la commande. Tarifs valables pour la période convenue."></textarea>
     </div>
-
+ 
     <button class="btn-primary" onclick="genererDevis()">⬡ Générer &amp; imprimer le devis</button>
     <p class="save-note">Vos coordonnées prestataire sont mémorisées dans ce navigateur (pas sur un serveur).</p>
   </div>
-
+ 
 </main>
-
-<footer>Simulateur Paie BTP Mayotte · Tarifs HT · Données traitées uniquement en local</footer>
-
+ 
+<footer>NürPay · Gestion Paie & Social Mayotte · Tarifs HT · Données traitées uniquement en local</footer>
+ 
 <script>
 /* ── TIERS ── */
 const tiers = [
-  {min:1,  max:5,   rate:30},
-  {min:6,  max:10,  rate:25},
-  {min:11, max:20,  rate:20},
-  {min:21, max:999, rate:15},
+  {min:1,  max:5,   rate:35},
+  {min:6,  max:10,  rate:30},
+  {min:11, max:20,  rate:25},
+  {min:21, max:999, rate:20},
 ];
 function getRate(n) { return tiers.find(t => n >= t.min && n <= t.max).rate; }
+function getSetupPrice(n) {
+  if (n <= 5)  return 120;
+  if (n <= 10) return 180;
+  if (n <= 20) return 250;
+  return null; // sur devis
+}
+function getAnnuelPrice(n) {
+  if (n <= 5)  return 80;
+  if (n <= 10) return 130;
+  if (n <= 20) return 200;
+  return null; // sur devis
+}
+function fmtOpt(p) { return p === null ? 'Sur devis' : fmt(p); }
 function fmt(n) { return n.toLocaleString('fr-FR', {minimumFractionDigits:0}) + ' €'; }
 function fmtDec(n) { return n.toLocaleString('fr-FR', {minimumFractionDigits:2,maximumFractionDigits:2}) + ' €'; }
-
+ 
 /* ── STATE ── */
 let simState = {};
-
+ 
 function update() {
   const nb   = parseInt(document.getElementById('nb-fiches').value);
   const rate = getRate(nb);
+  const setupPrice  = getSetupPrice(nb);
+  const annuelPrice = getAnnuelPrice(nb);
+ 
   document.getElementById('nb-out').textContent  = nb;
   document.getElementById('r-nb').textContent    = nb;
   document.getElementById('r-rate').textContent  = rate;
   let base = nb * rate;
   document.getElementById('r-base').textContent = fmt(base);
-
+ 
+  // Mise à jour des labels d'options
+  document.getElementById('opt-setup-price').textContent  = fmtOpt(setupPrice);
+  document.getElementById('opt-annuel-price').textContent = fmtOpt(annuelPrice);
+ 
   let total = base;
   const setup  = document.getElementById('opt-setup').checked;
   const decl   = document.getElementById('opt-decl').checked;
+  const cp     = document.getElementById('opt-cp').checked;
+  const rh     = document.getElementById('opt-rh').checked;
   const urgent = document.getElementById('opt-urgent').checked;
   const annuel = document.getElementById('opt-annuel').checked;
-
+ 
   document.getElementById('line-setup').style.display  = setup  ? '' : 'none';
   document.getElementById('line-decl').style.display   = decl   ? '' : 'none';
+  document.getElementById('line-cp').style.display     = cp     ? '' : 'none';
+  document.getElementById('line-rh').style.display     = rh     ? '' : 'none';
   document.getElementById('line-urgent').style.display = urgent ? '' : 'none';
   document.getElementById('line-annuel').style.display = annuel ? '' : 'none';
-
-  if (setup)  total += 80;
-  if (decl)   total += 20;
+ 
+  if (setup)  { document.getElementById('r-setup').textContent = fmtOpt(setupPrice); if (setupPrice !== null) total += setupPrice; }
+  if (decl)   total += 35;
+  if (cp)     { const c = nb * 10; document.getElementById('r-cp').textContent = fmt(c); document.getElementById('r-cp-nb').textContent = nb; total += c; }
+  if (rh)     total += 40;
   if (urgent) { const u = nb * 10; document.getElementById('r-urgent').textContent = fmt(u); total += u; }
-  if (annuel) total += 50;
-
-  document.getElementById('r-total').textContent = fmt(total);
-
+  if (annuel) { document.getElementById('r-annuel').textContent = fmtOpt(annuelPrice); if (annuelPrice !== null) total += annuelPrice; }
+ 
+  const surDevis = (setup && setupPrice === null) || (annuel && annuelPrice === null);
+  document.getElementById('r-total').textContent = surDevis ? fmt(total) + ' + devis' : fmt(total);
+ 
   document.querySelectorAll('.tier-card').forEach(c => {
     const min = parseInt(c.dataset.min), max = parseInt(c.dataset.max);
     c.classList.toggle('active', nb >= min && nb <= max);
   });
-
+ 
   /* Save state for devis */
   const tvaRate = parseFloat(document.querySelector('input[name="tva"]:checked').value);
-  simState = { nb, rate, base, setup, decl, urgent, urgentAmt: urgent ? nb*10 : 0, annuel, totalHT: total, tvaRate, totalTTC: total * (1 + tvaRate/100) };
+  simState = { nb, rate, base, setup, setupPrice, decl, cp, cpAmt: cp ? nb*10 : 0, rh, urgent, urgentAmt: urgent ? nb*10 : 0, annuel, annuelPrice, totalHT: total, tvaRate, totalTTC: total * (1 + tvaRate/100) };
 }
-
+ 
 /* ── TOGGLE DEVIS PANEL ── */
 function toggleDevis() {
   const panel  = document.getElementById('devis-panel');
@@ -572,7 +637,7 @@ function toggleDevis() {
     }
   }
 }
-
+ 
 /* ── LOCAL STORAGE – PRESTATAIRE ── */
 function savePresta() {
   const d = {nom:$('pre-nom'),siret:$('pre-siret'),adresse:$('pre-adresse'),tel:$('pre-tel'),email:$('pre-email')};
@@ -589,19 +654,27 @@ function loadPresta() {
   } catch(e) {}
 }
 function $(id) { return document.getElementById(id)?.value || ''; }
-
+ 
 /* ── LIGNES PRESTATION POUR DEVIS ── */
 function buildLines() {
   const s = simState;
   const lines = [];
   lines.push({desc: `Établissement des bulletins de paie BTP - ${s.nb} bulletin${s.nb>1?'s':''} (tarif ${s.rate} € / bulletin)`, pu: s.rate, qty: s.nb, total: s.base});
-  if (s.setup)  lines.push({desc:'Frais de mise en place (paramétrage, collecte des informations)', pu:80, qty:1, total:80});
-  if (s.decl)   lines.push({desc:'Déclarations sociales CSSM (mensuel)', pu:20, qty:1, total:20});
+  if (s.setup)  {
+    if (s.setupPrice !== null) lines.push({desc:'Frais de mise en place (paramétrage, collecte des informations, création des dossiers salariés)', pu:s.setupPrice, qty:1, total:s.setupPrice});
+    else lines.push({desc:'Frais de mise en place (paramétrage, collecte des informations, création des dossiers salariés) — tarif sur devis', pu:0, qty:1, total:0});
+  }
+  if (s.decl)   lines.push({desc:'Déclarations sociales CSSM mensuelle et contrôle des cotisations', pu:35, qty:1, total:35});
+  if (s.cp)     lines.push({desc:`Gestion des congés payés - acquisition, suivi, solde (${s.nb} salarié${s.nb>1?'s':''})`, pu:10, qty:s.nb, total:s.cpAmt});
+  if (s.rh)     lines.push({desc:'Assistance RH mensuelle - questions sociales, attestations, suivi administratif', pu:40, qty:1, total:40});
   if (s.urgent) lines.push({desc:'Majoration urgence - délai de traitement inférieur à 48h', pu:10, qty:s.nb, total:s.urgentAmt});
-  if (s.annuel) lines.push({desc:'Régularisation annuelle - solde congés payés et autres', pu:50, qty:1, total:50});
+  if (s.annuel) {
+    if (s.annuelPrice !== null) lines.push({desc:'Régularisation annuelle - solde congés payés, contrôle cotisations CSSM, rappels de salaire', pu:s.annuelPrice, qty:1, total:s.annuelPrice});
+    else lines.push({desc:'Régularisation annuelle - solde congés payés, contrôle cotisations CSSM, rappels de salaire — tarif sur devis', pu:0, qty:1, total:0});
+  }
   return lines;
 }
-
+ 
 /* ── GÉNÉRER DEVIS (nouvelle fenêtre imprimable) ── */
 function genererDevis() {
   update();
@@ -611,7 +684,7 @@ function genererDevis() {
   const totalHT = s.totalHT;
   const tvaAmt  = totalHT * tvaRate / 100;
   const totalTTC = totalHT + tvaAmt;
-
+ 
   const preNom     = $('pre-nom')     || '[Prestataire]';
   const preSiret   = $('pre-siret');
   const preAdresse = $('pre-adresse');
@@ -624,7 +697,7 @@ function genererDevis() {
   const dvDate     = formatDate($('dv-date'));
   const dvVal      = $('dv-validite') || '30 jours';
   const notes      = $('dv-notes');
-
+ 
   const linesHTML = lines.map(l => `
     <tr>
       <td style="padding:10px 14px;font-size:13px;color:#1A3352;line-height:1.5">${l.desc}</td>
@@ -632,17 +705,17 @@ function genererDevis() {
       <td style="padding:10px 14px;text-align:right;font-size:13px;color:#5A6B7E">${fmtDec(l.pu)}</td>
       <td style="padding:10px 14px;text-align:right;font-size:13px;font-weight:600;color:#1A3352">${fmtDec(l.total)}</td>
     </tr>`).join('');
-
+ 
   const tvaLine = tvaRate > 0
     ? `<tr><td colspan="3" style="padding:6px 14px;text-align:right;font-size:12px;color:#5A6B7E">TVA ${tvaRate} %</td><td style="padding:6px 14px;text-align:right;font-size:12px;color:#5A6B7E">${fmtDec(tvaAmt)}</td></tr>`
     : `<tr><td colspan="4" style="padding:6px 14px;font-size:11px;color:#8B9DB0;font-style:italic">TVA non applicable - article 293 B du CGI (franchise en base)</td></tr>`;
-
+ 
   const ttcLine = tvaRate > 0
     ? `<tr style="background:#0D1F35"><td colspan="3" style="padding:12px 14px;text-align:right;font-family:'Georgia',serif;font-size:14px;font-weight:600;color:#fff">Total TTC</td><td style="padding:12px 14px;text-align:right;font-family:'Georgia',serif;font-size:18px;font-weight:700;color:#F0C040">${fmtDec(totalTTC)}</td></tr>`
     : '';
-
+ 
   const notesHTML = notes ? `<div style="margin-top:28px;padding:14px;background:#F2F5F9;border-radius:8px;font-size:12px;color:#5A6B7E;line-height:1.7"><strong style="color:#0D1F35">Notes &amp; Conditions :</strong><br>${notes.replace(/\n/g,'<br>')}</div>` : '';
-
+ 
   const html = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
 <title>Devis ${dvNum}</title>
 <style>
@@ -655,10 +728,10 @@ function genererDevis() {
   tr:nth-child(even){background:#F8FAFC}
 </style></head><body>
 <div style="max-width:720px;margin:0 auto;padding:32px 0 48px">
-
+ 
   <!-- STRIPE -->
   <div style="height:5px;background:repeating-linear-gradient(90deg,#F0C040 0,#F0C040 24px,#0D1F35 24px,#0D1F35 32px);margin-bottom:28px;border-radius:2px"></div>
-
+ 
   <!-- HEADER -->
   <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:32px">
     <div>
@@ -674,7 +747,7 @@ function genererDevis() {
       ${preEmail   ? `<div style="font-size:12px;color:#5A6B7E">${preEmail}</div>` : ''}
     </div>
   </div>
-
+ 
   <!-- CLIENT -->
   <div style="background:#F2F5F9;border-radius:10px;padding:16px 18px;margin-bottom:28px">
     <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8B9DB0;margin-bottom:6px">Devis établi pour</div>
@@ -682,7 +755,7 @@ function genererDevis() {
     ${cliContact ? `<div style="font-size:12px;color:#5A6B7E;margin-top:2px">À l'attention de : ${cliContact}</div>` : ''}
     ${cliAdresse ? `<div style="font-size:12px;color:#5A6B7E;margin-top:2px">${cliAdresse}</div>` : ''}
   </div>
-
+ 
   <!-- OBJET -->
   <div style="font-size:12px;font-weight:600;color:#8B9DB0;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Prestations</div>
   <table style="margin-bottom:0">
@@ -704,9 +777,9 @@ function genererDevis() {
       ${ttcLine}
     </tfoot>
   </table>
-
+ 
   ${notesHTML}
-
+ 
   <!-- SIGNATURE -->
   <div style="display:flex;gap:28px;margin-top:40px;flex-wrap:wrap">
     <div style="flex:1;min-width:200px">
@@ -718,35 +791,35 @@ function genererDevis() {
       <div style="border-top:1px solid #C4CEDB;padding-top:8px;font-size:11px;color:#8B9DB0">${preNom}</div>
     </div>
   </div>
-
+ 
   <div style="height:5px;background:repeating-linear-gradient(90deg,#F0C040 0,#F0C040 24px,#0D1F35 24px,#0D1F35 32px);margin-top:40px;border-radius:2px"></div>
-
+ 
   <!-- PRINT BTN -->
   <div class="no-print" style="text-align:center;margin-top:28px">
     <button onclick="window.print()" style="background:#F0C040;color:#0D1F35;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;border:none;border-radius:8px;padding:13px 32px;cursor:pointer">🖨 Imprimer / Enregistrer en PDF</button>
     <p style="font-size:11px;color:#8B9DB0;margin-top:10px">Sur mobile : Partager → Imprimer → Enregistrer en PDF</p>
   </div>
-
+ 
 </div>
 </body></html>`;
-
+ 
   const w = window.open('', '_blank');
   w.document.write(html);
   w.document.close();
 }
-
+ 
 /* ── PRINT SIM (récapitulatif simple) ── */
 function printSim() {
   window.print();
 }
-
+ 
 /* ── DATE FORMATTING ── */
 function formatDate(str) {
   if (!str) return new Date().toLocaleDateString('fr-FR');
   const [y,m,d] = str.split('-');
   return `${d}/${m}/${y}`;
 }
-
+ 
 /* ── INIT ── */
 update();
 </script>
