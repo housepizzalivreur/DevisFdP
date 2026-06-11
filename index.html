@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NürPay · Paie BTP Mayotte - Tarifs & Devis</title>
+  <title>NûrPay · Paie Mayotte - Tarifs & Devis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -352,7 +352,7 @@
       <div class="logo-icon">N</div>
     </div>
     <div class="header-text">
-      <div class="header-eyebrow">BTP · Mayotte · CSSM</div>
+      <div class="header-eyebrow"> · NûrPay · Déclaration Gestion & Assistance</div>
       <h1 class="header-title">Tarifs &amp; Devis<br>Paie • CSSM • Gestion RH</h1>
       <p class="header-sub">Simulez votre tarification mensuelle et générez un devis professionnel en quelques secondes.</p>
     </div>
@@ -493,7 +493,7 @@
     <div class="form-grid">
       <div class="form-group">
         <label class="form-label" for="cli-nom">Nom / Raison sociale client</label>
-        <input class="form-input" id="cli-nom" type="text" placeholder="Entreprise BTP XY">
+        <input class="form-input" id="cli-nom" type="text" placeholder="Entreprise  XY">
       </div>
       <div class="form-group">
         <label class="form-label" for="cli-contact">Contact</label>
@@ -641,11 +641,11 @@ function toggleDevis() {
 /* ── LOCAL STORAGE – PRESTATAIRE ── */
 function savePresta() {
   const d = {nom:$('pre-nom'),siret:$('pre-siret'),adresse:$('pre-adresse'),tel:$('pre-tel'),email:$('pre-email')};
-  localStorage.setItem('paie_btp_presta', JSON.stringify(d));
+  localStorage.setItem('paie__presta', JSON.stringify(d));
 }
 function loadPresta() {
   try {
-    const d = JSON.parse(localStorage.getItem('paie_btp_presta') || '{}');
+    const d = JSON.parse(localStorage.getItem('paie__presta') || '{}');
     if (d.nom)     document.getElementById('pre-nom').value     = d.nom;
     if (d.siret)   document.getElementById('pre-siret').value   = d.siret;
     if (d.adresse) document.getElementById('pre-adresse').value = d.adresse;
@@ -659,7 +659,7 @@ function $(id) { return document.getElementById(id)?.value || ''; }
 function buildLines() {
   const s = simState;
   const lines = [];
-  lines.push({desc: `Établissement des bulletins de paie BTP - ${s.nb} bulletin${s.nb>1?'s':''} (tarif ${s.rate} € / bulletin)`, pu: s.rate, qty: s.nb, total: s.base});
+  lines.push({desc: `Établissement des bulletins de paie  - ${s.nb} bulletin${s.nb>1?'s':''} (tarif ${s.rate} € / bulletin)`, pu: s.rate, qty: s.nb, total: s.base});
   if (s.setup)  {
     if (s.setupPrice !== null) lines.push({desc:'Frais de mise en place (paramétrage, collecte des informations, création des dossiers salariés)', pu:s.setupPrice, qty:1, total:s.setupPrice});
     else lines.push({desc:'Frais de mise en place (paramétrage, collecte des informations, création des dossiers salariés) — tarif sur devis', pu:0, qty:1, total:0});
