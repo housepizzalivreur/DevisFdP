@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NûrPay · Paie Mayotte - Tarifs & Devis</title>
+  <title>NûrPay · Paie Mayotte - Tarifs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-   :root {
+    :root {
       --navy:        #0D1F35;
       --navy-mid:    #1A3352;
       --blue:        #1A5FA5;
@@ -17,6 +17,11 @@
       --amber:       #F0C040;
       --amber-dark:  #C89A10;
       --amber-bg:    #FEFAE8;
+      --green:       #1B9E5E;
+      --green-light: #E6F7EE;
+      --green-dark:  #157A48;
+      --orange:      #D97620;
+      --orange-light:#FEF3E8;
       --bg:          #F2F5F9;
       --surface:     #FFFFFF;
       --border:      #DDE3EC;
@@ -29,121 +34,97 @@
       --radius-lg:   14px;
       --shadow:      0 1px 4px rgba(13,31,53,.06), 0 4px 16px rgba(13,31,53,.05);
     }
- 
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
     }
- 
+
     /* ── HEADER ── */
-    .header {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
+    .header { background: var(--navy); position: relative; overflow: hidden; }
     .header-stripe {
       height: 5px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--amber) 0, var(--amber) 24px,
-        var(--navy)  24px, var(--navy)  32px
-      );
+      background: repeating-linear-gradient(90deg, var(--amber) 0, var(--amber) 24px, var(--navy) 24px, var(--navy) 32px);
     }
     .header-inner {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 28px 20px 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      max-width: 820px; margin: 0 auto; padding: 28px 20px 32px;
+      display: flex; align-items: center; gap: 20px;
     }
-    .header-logo {
-      flex-shrink: 0;
-    }
+    .header-logo { flex-shrink: 0; }
     .logo-icon {
-      width: 56px;
-      height: 56px;
+      width: 56px; height: 56px;
       background: linear-gradient(135deg, #1CCFE3 0%, #0EA8BF 100%);
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 26px;
-      color: #fff;
+      font-size: 26px; color: #fff;
       box-shadow: 0 4px 16px rgba(14,168,191,.40), inset 0 1px 0 rgba(255,255,255,.20);
-      letter-spacing: -.01em;
     }
     .header-text { flex: 1; }
     .header-eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 8px;
+      font-size: 11px; font-weight: 500; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 8px;
     }
     .header-title {
       font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(26px, 5vw, 38px);
-      color: #FFFFFF;
-      line-height: 1.15;
-      margin-bottom: 10px;
+      font-size: clamp(26px, 5vw, 38px); color: #fff; line-height: 1.15; margin-bottom: 10px;
     }
-    .header-sub {
-      font-size: 14px;
-      color: rgba(255,255,255,.55);
-      max-width: 420px;
-      line-height: 1.6;
-    }
+    .header-sub { font-size: 14px; color: rgba(255,255,255,.55); max-width: 440px; line-height: 1.6; }
     .hard-hat {
-      position: absolute;
-      right: 24px;
-      bottom: -4px;
-      font-size: 72px;
-      opacity: .12;
-      pointer-events: none;
-      user-select: none;
+      position: absolute; right: 24px; bottom: -4px;
+      font-size: 72px; opacity: .12; pointer-events: none; user-select: none;
     }
- 
+
     /* ── LAYOUT ── */
-    .main {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 28px 20px 60px;
-    }
- 
-    /* ── SECTION LABEL ── */
+    .main { max-width: 820px; margin: 0 auto; padding: 28px 20px 60px; }
     .section-label {
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 12px;
-      margin-top: 28px;
+      font-size: 10.5px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-3);
+      margin-bottom: 12px; margin-top: 32px;
     }
     .section-label:first-child { margin-top: 0; }
- 
-    /* ── TIER GRID ── */
-    .tier-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 4px;
+
+    /* ══ TOGGLE ══ */
+    .mode-toggle-wrapper { display: flex; justify-content: center; margin-bottom: 32px; }
+    .mode-toggle {
+      display: flex; background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 50px; padding: 4px; box-shadow: var(--shadow); position: relative;
     }
-    @media (max-width: 540px) {
-      .tier-grid { grid-template-columns: repeat(2, 1fr); }
+    .mode-btn {
+      position: relative; z-index: 2; padding: 10px 28px;
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+      border: none; background: transparent; color: var(--text-2);
+      cursor: pointer; border-radius: 50px; transition: color .25s; white-space: nowrap;
     }
+    .mode-btn.active { color: #fff; }
+    .mode-pill {
+      position: absolute; top: 4px; height: calc(100% - 8px); border-radius: 50px;
+      transition: left .35s cubic-bezier(.4,0,.2,1), width .35s cubic-bezier(.4,0,.2,1), background .35s;
+      z-index: 1;
+    }
+    .mode-toggle[data-mode="entreprise"] .mode-pill { background: var(--navy); }
+    .mode-toggle[data-mode="association"] .mode-pill { background: var(--green); }
+
+    /* ══ PANELS ══ */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── SHARED ── */
+    .card-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow);
+    }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+    /* ══ ENTREPRISES ══ */
+    .tier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 4px; }
+    @media (max-width: 540px) { .tier-grid { grid-template-columns: repeat(2, 1fr); } }
     .tier-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px 10px 12px;
-      text-align: center;
-      transition: border-color .15s, box-shadow .15s;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--radius-md); padding: 14px 10px 12px;
+      text-align: center; transition: border-color .15s, box-shadow .15s;
     }
     .tier-card.active {
       border-color: var(--amber);
@@ -155,673 +136,958 @@
     .tier-unit  { font-size: 11px; color: var(--text-3); margin-top: 2px; }
     .tier-range { font-size: 11px; font-weight: 600; color: var(--blue); margin-top: 5px; }
     .tier-card.active .tier-range { color: var(--amber-dark); }
- 
-    /* ── CONTROLS ── */
-    .controls {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-    .ctrl-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .ctrl-label {
-      font-size: 13px;
-      color: var(--text-2);
-      width: 220px;
-      flex-shrink: 0;
-    }
-    @media (max-width: 540px) { .ctrl-label { width: 140px; } }
+
+    /* ── SLIDER ROW ── */
+    .ctrl-row { display: flex; align-items: center; gap: 14px; }
+    .ctrl-label { font-size: 13px; color: var(--text-2); width: 220px; flex-shrink: 0; }
+    @media (max-width: 540px) { .ctrl-label { width: 130px; font-size: 12px; } }
     .ctrl-val {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--navy);
-      min-width: 30px;
-      text-align: right;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px; font-weight: 600; color: var(--navy);
+      min-width: 36px; text-align: right;
     }
-    input[type=range] {
-      flex: 1;
-      accent-color: var(--amber);
-      cursor: pointer;
+    input[type=range] { flex: 1; accent-color: var(--amber); cursor: pointer; height: 6px; }
+    .asso-accent input[type=range] { accent-color: var(--green); }
+
+    /* ── OPTIONS ── */
+    .opts-label {
+      font-size: 11px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--text-3); margin-bottom: 10px;
     }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
-    .opts-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; }
     .opt-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 0;
+      display: flex; align-items: center; gap: 10px; padding: 7px 0;
       border-bottom: 1px solid var(--border);
     }
     .opt-row:last-child { border-bottom: none; }
     .opt-label { font-size: 13px; color: var(--text-2); flex: 1; }
     .opt-price { font-size: 13px; font-weight: 600; color: var(--text-2); white-space: nowrap; }
-    input[type=checkbox] {
-      width: 16px; height: 16px;
-      accent-color: var(--blue);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
+    input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--blue); cursor: pointer; flex-shrink: 0; }
+    .asso-accent input[type=checkbox] { accent-color: var(--green); }
     .badge {
-      background: var(--blue-light);
-      color: var(--blue);
-      font-size: 10px;
-      font-weight: 600;
-      padding: 1px 7px;
-      border-radius: 20px;
-      margin-left: 6px;
-      vertical-align: middle;
+      background: var(--blue-light); color: var(--blue);
+      font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 20px; margin-left: 6px;
     }
- 
-    /* ── RESULT CARD ── */
-    .result-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
+
+    /* ── RESULT ── */
     .result-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 0;
-      font-size: 13px;
-      color: var(--text-2);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 7px 0; font-size: 13px; color: var(--text-2);
       border-bottom: 1px solid var(--border);
     }
     .result-line:last-of-type { border-bottom: none; }
+    .result-line .val { font-weight: 600; }
     .result-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding-top: 14px;
-      margin-top: 8px;
-      border-top: 2px solid var(--navy);
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-top: 14px; margin-top: 8px; border-top: 2px solid var(--navy);
     }
     .result-total-label { font-size: 15px; font-weight: 600; color: var(--navy); }
     .result-total-val {
-      font-family: 'DM Serif Display', serif;
-      font-size: 32px;
-      color: var(--blue);
-      line-height: 1;
+      font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--blue); line-height: 1;
     }
     .note { font-size: 11px; color: var(--text-3); margin-top: 12px; line-height: 1.6; }
- 
-    /* ── BUTTONS ── */
-    .btn-primary {
-      display: block;
-      width: 100%;
-      background: var(--amber);
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: 600;
-      border: none;
-      border-radius: var(--radius-md);
-      padding: 13px 20px;
-      cursor: pointer;
-      margin-top: 16px;
-      transition: background .15s, transform .1s;
-    }
-    .btn-primary:hover { background: var(--amber-dark); color: #fff; }
-    .btn-primary:active { transform: scale(.98); }
     .btn-ghost {
-      display: block;
-      width: 100%;
-      background: transparent;
-      color: var(--text-2);
-      font-size: 13px;
-      font-weight: 500;
-      border: 1px solid var(--border-dark);
-      border-radius: var(--radius-md);
-      padding: 10px 20px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background .12s;
+      display: block; width: 100%; background: transparent; color: var(--text-2);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 500; border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md); padding: 10px 20px; cursor: pointer;
+      margin-top: 10px; transition: background .12s;
     }
     .btn-ghost:hover { background: var(--bg); }
- 
-    /* ── DEVIS FORM ── */
-    .devis-panel {
-      display: none;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      box-shadow: var(--shadow);
+
+    /* ══ ASSOCIATIONS — CARDS ══ */
+    .asso-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    @media (max-width: 640px) { .asso-cards { grid-template-columns: 1fr; } }
+    .asso-card {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 20px 16px 18px;
+      cursor: pointer; transition: border-color .2s, box-shadow .2s, transform .15s;
+      position: relative;
     }
-    .devis-panel.open { display: block; }
-    .devis-panel-title {
+    .asso-card:hover { border-color: var(--border-dark); transform: translateY(-1px); }
+    .asso-card.selected { border-color: var(--green); box-shadow: 0 0 0 3px rgba(27,158,94,.15); }
+    .asso-card.selected.is-solidaire { border-color: var(--amber-dark); box-shadow: 0 0 0 3px rgba(200,154,16,.15); }
+    .asso-card.selected.is-village { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(217,118,32,.15); }
+    .asso-card::before {
+      content: ''; position: absolute; top: 16px; right: 16px;
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid var(--border-dark); background: var(--surface);
+      transition: border-color .2s, background .2s;
+    }
+    .asso-card.selected::before { border-color: var(--green); background: var(--green); box-shadow: inset 0 0 0 3px #fff; }
+    .asso-card.selected.is-solidaire::before { border-color: var(--amber-dark); background: var(--amber-dark); }
+    .asso-card.selected.is-village::before { border-color: var(--orange); background: var(--orange); }
+
+    .asso-badge {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 9px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .asso-badge.green  { background: var(--green-light); color: var(--green); }
+    .asso-badge.amber  { background: var(--amber-bg); color: var(--amber-dark); }
+    .asso-badge.orange { background: var(--orange-light); color: var(--orange); }
+
+    .asso-card-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      color: var(--navy);
-      margin-bottom: 18px;
+      font-size: 19px; color: var(--navy); margin-bottom: 2px;
     }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .asso-card-sub { font-size: 11px; color: var(--text-3); margin-bottom: 12px; line-height: 1.5; }
+    .asso-price-main {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px; color: var(--navy); line-height: 1;
     }
-    @media (max-width: 480px) { .form-grid { grid-template-columns: 1fr; } }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+    .asso-price-main sup { font-size: 14px; }
+    .asso-price-suffix { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+    .asso-price-strike { text-decoration: line-through; color: var(--text-3); font-size: 13px; margin-right: 5px; }
+
+    .asso-includes { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-top: 10px; }
+    .asso-includes li {
+      font-size: 11.5px; color: var(--text-2);
+      display: flex; gap: 5px; align-items: flex-start; line-height: 1.5;
     }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-label { font-size: 12px; font-weight: 500; color: var(--text-2); }
-    .form-input {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: var(--navy);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 9px 11px;
-      outline: none;
-      transition: border-color .15s;
+    .asso-includes li::before { content: '✓'; flex-shrink: 0; font-size: 10px; margin-top: 2px; font-weight: 700; }
+    .asso-card.featured .asso-includes li::before { color: var(--green); }
+    .asso-card.solidaire .asso-includes li::before { color: var(--amber-dark); }
+    .asso-card.village .asso-includes li::before { color: var(--orange); }
+
+    .criteria-box { background: var(--bg); border-radius: var(--radius-sm); padding: 8px 10px; margin-top: 10px; }
+    .criteria-box-label { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 4px; }
+    .criteria-box ul { list-style: none; }
+    .criteria-box ul li { font-size: 10.5px; color: var(--text-2); padding: 1px 0; }
+    .criteria-box ul li::before { content: '·'; margin-right: 5px; font-weight: 800; color: var(--amber-dark); }
+    .communes-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+    .commune-tag {
+      font-size: 9.5px; padding: 1px 7px; border: 1px solid var(--border);
+      border-radius: 20px; color: var(--text-3); background: var(--surface);
     }
-    .form-input:focus { border-color: var(--blue); background: #fff; }
-    textarea.form-input { resize: vertical; min-height: 64px; }
-    .tva-row { display: flex; align-items: center; gap: 10px; margin-top: 4px; }
-    .tva-row label { font-size: 13px; color: var(--text-2); cursor: pointer; display: flex; align-items: center; gap: 6px; }
-    .form-section-sep { border: none; border-top: 1px dashed var(--border-dark); margin: 18px 0; }
-    .save-note { font-size: 11px; color: var(--text-3); margin-top: 14px; }
- 
+
+    /* ── Service details ── */
+    .services-section { margin-top: 20px; }
+    .services-toggle {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 12px 16px;
+      cursor: pointer; transition: background .15s; width: 100%;
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+      color: var(--navy); text-align: left;
+    }
+    .services-toggle:hover { background: var(--bg); }
+    .services-toggle .arrow {
+      margin-left: auto; font-size: 11px; color: var(--text-3);
+      transition: transform .25s;
+    }
+    .services-toggle.open .arrow { transform: rotate(180deg); }
+    .services-grid {
+      display: none; margin-top: 8px;
+    }
+    .services-grid.open { display: grid; grid-template-columns: 1fr; gap: 0; }
+    .service-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 0; padding: 16px 18px;
+      margin-top: -1px;
+    }
+    .service-item:first-child { border-radius: var(--radius-md) var(--radius-md) 0 0; }
+    .service-item:last-child { border-radius: 0 0 var(--radius-md) var(--radius-md); }
+    .service-item:only-child { border-radius: var(--radius-md); }
+    .service-head {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+    }
+    .service-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0;
+    }
+    .service-icon.green  { background: var(--green-light); }
+    .service-icon.blue   { background: var(--blue-light); }
+    .service-icon.amber  { background: var(--amber-bg); }
+    .service-title { font-size: 13px; font-weight: 600; color: var(--navy); }
+    .service-desc {
+      font-size: 12px; color: var(--text-2); line-height: 1.6;
+      padding-left: 42px;
+    }
+    .service-scope {
+      display: inline-block; margin-top: 6px; padding-left: 42px;
+      font-size: 10.5px; font-weight: 600; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--green-dark);
+      background: var(--green-light); padding: 2px 8px 2px 8px;
+      border-radius: 4px;
+      margin-left: 42px;
+    }
+    @media (max-width: 540px) {
+      .service-desc, .service-scope { padding-left: 0; margin-left: 0; }
+    }
+
+    /* ── Options detail (hover tooltip style) ── */
+    .opt-detail {
+      font-size: 11px; color: var(--text-3); line-height: 1.5;
+      padding-left: 26px; margin-top: 2px; margin-bottom: 2px;
+    }
+
+    /* ── Non-cumul notice ── */
+    .non-cumul {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--amber-bg); border: 1px solid rgba(240,192,64,.3);
+      border-radius: var(--radius-md); padding: 10px 14px;
+      margin-top: 10px; font-size: 12px; color: var(--amber-dark); line-height: 1.5;
+    }
+    .non-cumul strong { font-weight: 600; }
+
+    /* ── ASSO RESULT ── */
+    .asso-r-line {
+      display: flex; justify-content: space-between;
+      font-size: 13px; color: var(--text-2); padding: 5px 0;
+    }
+    .asso-r-line .val { font-weight: 600; }
+    .asso-r-line .reduction { color: var(--green-dark); }
+    .asso-r-total {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-top: 12px; margin-top: 6px; border-top: 2px solid var(--navy);
+    }
+    .asso-r-total .label { font-size: 15px; font-weight: 600; color: var(--navy); }
+    .asso-r-total .val {
+      font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--green); line-height: 1;
+    }
+    .asso-r-total.is-solidaire .val { color: var(--amber-dark); }
+    .asso-r-total.is-village .val { color: var(--orange); }
+    .asso-r-sur-devis {
+      padding: 16px; border: 1px dashed var(--border-dark);
+      border-radius: var(--radius-md); text-align: center; margin-top: 16px;
+    }
+    .asso-r-sur-devis p:first-child { font-weight: 600; color: var(--orange); margin-bottom: 4px; }
+    .asso-r-sur-devis p:last-child { font-size: 12px; color: var(--text-3); }
+
+    /* ── PAYMENT SCHEDULE ── */
+    .payment-schedule {
+      margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border);
+    }
+    .payment-schedule-title {
+      font-size: 10.5px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--text-3); margin-bottom: 10px;
+    }
+    .payment-options {
+      display: flex; gap: 6px;
+    }
+    @media (max-width: 540px) { .payment-options { flex-direction: column; } }
+    .payment-opt {
+      flex: 1;
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: var(--radius-md); padding: 12px 10px;
+      text-align: center; cursor: pointer;
+      transition: border-color .15s, box-shadow .15s, background .15s;
+    }
+    .payment-opt:hover { border-color: var(--border-dark); }
+    .payment-opt.active {
+      border-color: var(--green); background: var(--green-light);
+      box-shadow: 0 0 0 2px rgba(27,158,94,.12);
+    }
+    .payment-opt.active.color-amber { border-color: var(--amber-dark); background: var(--amber-bg); box-shadow: 0 0 0 2px rgba(200,154,16,.12); }
+    .payment-opt.active.color-orange { border-color: var(--orange); background: var(--orange-light); box-shadow: 0 0 0 2px rgba(217,118,32,.12); }
+    .payment-opt-label { font-size: 11px; color: var(--text-3); margin-bottom: 4px; }
+    .payment-opt-amount {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px; color: var(--navy); line-height: 1;
+    }
+    .payment-opt-freq { font-size: 10px; color: var(--text-3); margin-top: 3px; }
+
+    /* ── PRINT ── */
+    @media print {
+      .mode-toggle-wrapper, .hard-hat { display: none; }
+      .panel { display: block !important; page-break-before: always; }
+      .panel:first-of-type { page-break-before: auto; }
+    }
+
     /* ── FOOTER ── */
     footer {
-      text-align: center;
-      font-size: 11px;
-      color: var(--text-3);
-      padding: 24px 20px;
-      border-top: 1px solid var(--border);
+      text-align: center; font-size: 11px; color: var(--text-3);
+      padding: 24px 20px; border-top: 1px solid var(--border);
     }
   </style>
 </head>
 <body>
- 
+
 <!-- ── HEADER ── -->
 <div class="header">
   <div class="header-stripe"></div>
   <div class="header-inner">
-    <div class="header-logo">
-      <div class="logo-icon">N</div>
-    </div>
+    <div class="header-logo"><div class="logo-icon">N</div></div>
     <div class="header-text">
-      <div class="header-eyebrow"> · NûrPay · Déclaration Gestion & Assistance</div>
-      <h1 class="header-title">Tarifs &amp; Devis<br>Paie • CSSM • Gestion RH</h1>
-      <p class="header-sub">Simulez votre tarification mensuelle et générez un devis professionnel en quelques secondes.</p>
+      <div class="header-eyebrow">NûrPay · Déclaration Gestion & Assistance</div>
+      <h1 class="header-title" id="header-title">Tarifs Entreprises<br>Paie · CSSM · Gestion RH</h1>
+      <p class="header-sub" id="header-sub">Simulez votre tarification mensuelle en quelques secondes.</p>
     </div>
   </div>
-  <div class="hard-hat">🪖</div>
+  <div class="hard-hat" id="header-emoji">🪖</div>
 </div>
- 
-<!-- ── MAIN ── -->
+
 <main class="main">
- 
-  <!-- GRILLE TARIFAIRE -->
-  <p class="section-label">Grille tarifaire par volume</p>
-  <div class="tier-grid" id="tier-grid">
-    <div class="tier-card" data-min="1"  data-max="5"   data-rate="35">
-      <div class="tier-name">Micro</div>
-      <div class="tier-price">35 €</div>
-      <div class="tier-unit">/ bulletin</div>
-      <div class="tier-range">1 à 5 fiches</div>
-    </div>
-    <div class="tier-card" data-min="6"  data-max="10"  data-rate="30">
-      <div class="tier-name">Artisan</div>
-      <div class="tier-price">30 €</div>
-      <div class="tier-unit">/ bulletin</div>
-      <div class="tier-range">6 à 10 fiches</div>
-    </div>
-    <div class="tier-card" data-min="11" data-max="20"  data-rate="25">
-      <div class="tier-name">PME</div>
-      <div class="tier-price">25 €</div>
-      <div class="tier-unit">/ bulletin</div>
-      <div class="tier-range">11 à 20 fiches</div>
-    </div>
-    <div class="tier-card" data-min="21" data-max="999" data-rate="20">
-      <div class="tier-name">Volume</div>
-      <div class="tier-price">20 €</div>
-      <div class="tier-unit">/ bulletin</div>
-      <div class="tier-range">21 fiches et +</div>
+
+  <!-- ══ TOGGLE ══ -->
+  <div class="mode-toggle-wrapper">
+    <div class="mode-toggle" id="mode-toggle" data-mode="entreprise">
+      <div class="mode-pill" id="mode-pill"></div>
+      <button class="mode-btn active" id="btn-entreprise" onclick="switchMode('entreprise')">Entreprises</button>
+      <button class="mode-btn" id="btn-association" onclick="switchMode('association')">Associations</button>
     </div>
   </div>
- 
-  <!-- SIMULATEUR -->
-  <p class="section-label">Simulateur</p>
-  <div class="controls">
-    <div class="ctrl-row">
-      <span class="ctrl-label">Bulletins / mois</span>
-      <input type="range" min="1" max="30" value="3" id="nb-fiches" step="1" oninput="update()">
-      <span class="ctrl-val" id="nb-out">3</span>
+
+  <!-- ══════════════════════════════════════
+       PANEL ENTREPRISES
+       ══════════════════════════════════════ -->
+  <div class="panel active" id="panel-entreprise">
+
+    <p class="section-label">Grille tarifaire par volume</p>
+    <div class="tier-grid" id="tier-grid">
+      <div class="tier-card" data-min="1"  data-max="5"   data-rate="35">
+        <div class="tier-name">Micro</div>
+        <div class="tier-price">35 €</div>
+        <div class="tier-unit">/ bulletin</div>
+        <div class="tier-range">1 à 5 fiches</div>
+      </div>
+      <div class="tier-card" data-min="6"  data-max="10"  data-rate="30">
+        <div class="tier-name">Artisan</div>
+        <div class="tier-price">30 €</div>
+        <div class="tier-unit">/ bulletin</div>
+        <div class="tier-range">6 à 10 fiches</div>
+      </div>
+      <div class="tier-card" data-min="11" data-max="20"  data-rate="25">
+        <div class="tier-name">PME</div>
+        <div class="tier-price">25 €</div>
+        <div class="tier-unit">/ bulletin</div>
+        <div class="tier-range">11 à 20 fiches</div>
+      </div>
+      <div class="tier-card" data-min="21" data-max="999" data-rate="20">
+        <div class="tier-name">Volume</div>
+        <div class="tier-price">20 €</div>
+        <div class="tier-unit">/ bulletin</div>
+        <div class="tier-range">21 fiches et +</div>
+      </div>
     </div>
-    <hr class="divider">
-    <div class="opts-label">Options complémentaires</div>
-    <div class="opt-row">
-      <input type="checkbox" id="opt-setup" onchange="update()">
-      <label class="opt-label" for="opt-setup">Frais de mise en place <span class="badge">1 fois</span></label>
-      <span class="opt-price" id="opt-setup-price">120 €</span>
+
+    <!-- CE QUI EST INCLUS — ENTREPRISES -->
+    <div class="services-section">
+      <button class="services-toggle" id="services-toggle-e" onclick="toggleServicesE()">
+        Ce qui est inclus dans le tarif par bulletin
+        <span class="arrow">▼</span>
+      </button>
+      <div class="services-grid" id="services-grid-e">
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon green">📄</div>
+            <div class="service-title">Établissement du bulletin de paie</div>
+          </div>
+          <div class="service-desc">
+            Collecte de vos éléments variables (heures travaillées, absences, primes), calcul du brut au net avec application des cotisations CSSM spécifiques à Mayotte, et remise d'un bulletin conforme.
+          </div>
+          <div class="service-scope">Engagement : bulletins remis avant le dernier jour ouvré du mois</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon blue">📋</div>
+            <div class="service-title">Attestations courantes</div>
+          </div>
+          <div class="service-desc">
+            Attestation Pôle emploi en fin de contrat, attestation de salaire CSSM (arrêt maladie, maternité, accident du travail), certificat de travail et solde de tout compte.
+          </div>
+          <div class="service-scope">Engagement : documents produits sous 48h ouvrées après demande</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon amber">🗂️</div>
+            <div class="service-title">Archivage & suivi de base</div>
+          </div>
+          <div class="service-desc">
+            Conservation de vos bulletins, suivi des échéances de contrats (CDD, périodes d'essai), et alerte en cas d'obligation à venir (visite médicale, registre du personnel).
+          </div>
+          <div class="service-scope">Engagement : alertes proactives par e-mail avant chaque échéance</div>
+        </div>
+
+      </div>
     </div>
-    <div class="opt-row">
-      <input type="checkbox" id="opt-decl" onchange="update()">
-      <label class="opt-label" for="opt-decl">Déclarations sociales CSSM &amp; contrôle cotisations / mois</label>
-      <span class="opt-price">35 €</span>
+
+    <p class="section-label">Simulateur</p>
+    <div class="card-box">
+      <div class="ctrl-row">
+        <span class="ctrl-label">Bulletins / mois</span>
+        <input type="range" min="1" max="30" value="3" id="nb-fiches" step="1" oninput="updateE()">
+        <span class="ctrl-val" id="nb-out">3</span>
+      </div>
+      <hr class="divider">
+      <div class="opts-label">Options complémentaires</div>
+      <div class="opt-row">
+        <input type="checkbox" id="opt-setup" onchange="updateE()">
+        <label class="opt-label" for="opt-setup">Frais de mise en place <span class="badge">1 fois</span></label>
+        <span class="opt-price" id="opt-setup-price">120 €</span>
+      </div>
+      <div class="opt-detail">Paramétrage du dossier, collecte des informations, création des fiches salariés et reprise de l'historique.</div>
+
+      <div class="opt-row">
+        <input type="checkbox" id="opt-decl" onchange="updateE()">
+        <label class="opt-label" for="opt-decl">Déclarations sociales CSSM & contrôle cotisations</label>
+        <span class="opt-price">35 € / mois</span>
+      </div>
+      <div class="opt-detail">Transmission mensuelle de la DSN sur net-entreprises.fr, vérification des cotisations CSSM et gestion des retours d'anomalies.</div>
+
+      <div class="opt-row">
+        <input type="checkbox" id="opt-cp" onchange="updateE()">
+        <label class="opt-label" for="opt-cp">Gestion congés payés (acquisition, suivi, solde)</label>
+        <span class="opt-price">10 € / salarié / mois</span>
+      </div>
+      <div class="opt-detail">Calcul des droits acquis, suivi des compteurs, gestion des soldes en fin de période et régularisations.</div>
+
+      <div class="opt-row">
+        <input type="checkbox" id="opt-rh" onchange="updateE()">
+        <label class="opt-label" for="opt-rh">Assistance RH (questions, attestations, suivi admin)</label>
+        <span class="opt-price">40 € / mois</span>
+      </div>
+      <div class="opt-detail">Réponses à vos questions RH courantes sous 48h : renouvellement CDD, préavis, obligations légales. Jusqu'à 4 questions par mois.</div>
+
+      <div class="opt-row">
+        <input type="checkbox" id="opt-urgent" onchange="updateE()">
+        <label class="opt-label" for="opt-urgent">Majoration urgence (délai < 48h)</label>
+        <span class="opt-price">+10 € / fiche</span>
+      </div>
+      <div class="opt-detail">Traitement prioritaire si les éléments de paie sont transmis avec un délai inférieur à 48h avant la date de remise.</div>
+
+      <div class="opt-row">
+        <input type="checkbox" id="opt-annuel" onchange="updateE()">
+        <label class="opt-label" for="opt-annuel">Régularisation annuelle</label>
+        <span class="opt-price" id="opt-annuel-price">80 €</span>
+      </div>
+      <div class="opt-detail">Solde des congés payés, contrôle annuel des cotisations CSSM et traitement des rappels de salaire.</div>
+
     </div>
-    <div class="opt-row">
-      <input type="checkbox" id="opt-cp" onchange="update()">
-      <label class="opt-label" for="opt-cp">Gestion congés payés (acquisition, suivi, solde) / mois</label>
-      <span class="opt-price" id="opt-cp-price">10 € / salarié</span>
-    </div>
-    <div class="opt-row">
-      <input type="checkbox" id="opt-rh" onchange="update()">
-      <label class="opt-label" for="opt-rh">Assistance RH (questions, attestations, suivi admin) / mois</label>
-      <span class="opt-price">40 €</span>
-    </div>
-    <div class="opt-row">
-      <input type="checkbox" id="opt-urgent" onchange="update()">
-      <label class="opt-label" for="opt-urgent">Majoration urgence (délai &lt; 48h)</label>
-      <span class="opt-price">+10 € / fiche</span>
-    </div>
-    <div class="opt-row">
-      <input type="checkbox" id="opt-annuel" onchange="update()">
-      <label class="opt-label" for="opt-annuel">Régularisation annuelle (solde CP, contrôle cotisations, rappels)</label>
-      <span class="opt-price" id="opt-annuel-price">80 €</span>
+
+    <p class="section-label">Estimation mensuelle</p>
+    <div class="card-box">
+      <div class="result-line"><span>Bulletins (<span id="r-nb">3</span> × <span id="r-rate">35</span> €)</span><span class="val" id="r-base">105 €</span></div>
+      <div class="result-line" id="line-setup"  style="display:none"><span>Mise en place (1 fois)</span><span class="val" id="r-setup">120 €</span></div>
+      <div class="result-line" id="line-decl"   style="display:none"><span>Déclarations sociales CSSM</span><span class="val">35 €</span></div>
+      <div class="result-line" id="line-cp"     style="display:none"><span>Gestion congés payés (<span id="r-cp-nb">3</span> sal.)</span><span class="val" id="r-cp">–</span></div>
+      <div class="result-line" id="line-rh"     style="display:none"><span>Assistance RH</span><span class="val">40 €</span></div>
+      <div class="result-line" id="line-urgent" style="display:none"><span>Majoration urgence</span><span class="val" id="r-urgent">–</span></div>
+      <div class="result-line" id="line-annuel" style="display:none"><span>Régularisation annuelle</span><span class="val" id="r-annuel">80 €</span></div>
+      <div class="result-total">
+        <span class="result-total-label">Total HT / mois</span>
+        <span class="result-total-val" id="r-total">105 €</span>
+      </div>
+      <p class="note">
+        Tarifs HT — Auto-entrepreneur (franchise TVA) : facturez ce montant directement.<br>
+        Société (SARL, SAS…) : ajoutez 8,5 % TVA applicable à Mayotte.
+      </p>
+      <button class="btn-ghost" onclick="window.print()">Imprimer ce récapitulatif</button>
     </div>
   </div>
- 
-  <!-- RÉSULTAT -->
-  <p class="section-label">Résultat</p>
-  <div class="result-card">
-    <div class="result-line"><span>Bulletins (<span id="r-nb">3</span> × <span id="r-rate">35</span> €)</span><span id="r-base">105 €</span></div>
-    <div class="result-line" id="line-setup"  style="display:none"><span>Mise en place (1 fois)</span><span id="r-setup">120 €</span></div>
-    <div class="result-line" id="line-decl"   style="display:none"><span>Déclarations sociales CSSM</span><span>35 €</span></div>
-    <div class="result-line" id="line-cp"     style="display:none"><span>Gestion congés payés (<span id="r-cp-nb">3</span> salariés)</span><span id="r-cp">-</span></div>
-    <div class="result-line" id="line-rh"     style="display:none"><span>Assistance RH</span><span>40 €</span></div>
-    <div class="result-line" id="line-urgent" style="display:none"><span>Majoration urgence</span><span id="r-urgent">-</span></div>
-    <div class="result-line" id="line-annuel" style="display:none"><span>Régularisation annuelle</span><span id="r-annuel">80 €</span></div>
-    <div class="result-total">
-      <span class="result-total-label">Total HT</span>
-      <span class="result-total-val" id="r-total">90 €</span>
+
+  <!-- ══════════════════════════════════════
+       PANEL ASSOCIATIONS
+       ══════════════════════════════════════ -->
+  <div class="panel" id="panel-association">
+
+    <!-- STEP 1 -->
+    <p class="section-label">Choisissez votre formule</p>
+    <div class="asso-cards" id="asso-cards">
+
+      <div class="asso-card featured selected" data-forfait="normal" onclick="selectAssoCard(this)">
+        <span class="asso-badge green">Offre principale</span>
+        <div class="asso-card-title">Forfait Annuel</div>
+        <div class="asso-card-sub">Prix fixe, sans surprise, planifiable</div>
+        <div class="asso-price-main"><sup>dès </sup>900<sup> €</sup></div>
+        <div class="asso-price-suffix">par an · HT</div>
+        <ul class="asso-includes">
+          <li>Bulletins de paie mensuels</li>
+          <li>Déclarations CSSM & DSN</li>
+          <li>Attestations employeur</li>
+          <li>Assistance RH de base incluse</li>
+          <li>Suivi administratif courant</li>
+        </ul>
+      </div>
+
+      <div class="asso-card solidaire" data-forfait="solidaire" onclick="selectAssoCard(this)">
+        <span class="asso-badge amber">Tarif solidaire</span>
+        <div class="asso-card-title">Forfait Solidaire</div>
+        <div class="asso-card-sub">Associations de moins de 50 000 € de budget annuel</div>
+        <div style="display:flex; align-items:baseline; gap:5px; flex-wrap:wrap;">
+          <span class="asso-price-strike">900 €</span>
+          <span class="asso-price-main" style="color:var(--amber-dark)">720<sup> €</sup></span>
+        </div>
+        <div class="asso-price-suffix">par an · HT — <strong style="color:var(--amber-dark)">−20 %</strong></div>
+        <div class="criteria-box">
+          <p class="criteria-box-label">Critères d'éligibilité</p>
+          <ul>
+            <li>Budget annuel < 50 000 €</li>
+            <li>Moins de 3 salariés</li>
+            <li>Activité d'intérêt général</li>
+          </ul>
+        </div>
+        <div style="font-size:10.5px; color:var(--text-3); margin-top:10px; padding-top:8px; border-top:1px solid var(--border);">Mêmes prestations incluses que le forfait annuel</div>
+      </div>
+
+      <div class="asso-card village" data-forfait="village" onclick="selectAssoCard(this)">
+        <span class="asso-badge orange">Pack Village</span>
+        <div class="asso-card-title">Mutualisation</div>
+        <div class="asso-card-sub">3 à 10 associations d'une même commune</div>
+        <div style="display:flex; align-items:baseline; gap:5px; flex-wrap:wrap;">
+          <span class="asso-price-strike">900 €</span>
+          <span class="asso-price-main" style="color:var(--orange)">675<sup> €</sup></span>
+        </div>
+        <div class="asso-price-suffix">par an / asso · HT — <strong style="color:var(--orange)">−25 %</strong></div>
+        <p style="font-size:10px; color:var(--text-3); margin-top:8px; margin-bottom:4px;">Communes éligibles :</p>
+        <div class="communes-tags">
+          <span class="commune-tag">Sada</span>
+          <span class="commune-tag">Chirongui</span>
+          <span class="commune-tag">Bandrélé</span>
+          <span class="commune-tag">Mtsamboro</span>
+          <span class="commune-tag">Ouangani</span>
+          <span class="commune-tag">Tsingoni</span>
+          <span class="commune-tag">M'tsapéré</span>
+          <span class="commune-tag">Kawéni</span>
+        </div>
+        <div style="font-size:10.5px; color:var(--text-3); margin-top:10px; padding-top:8px; border-top:1px solid var(--border);">Mêmes prestations incluses que le forfait annuel</div>
+      </div>
     </div>
-    <p class="note">
-      Tarifs HT - Auto-entrepreneur (franchise TVA) : facturez ce montant directement, mention légale obligatoire.<br>
-      Société (SARL, SAS…) : ajoutez 8,5 % TVA applicable à Mayotte.
-    </p>
-    <button class="btn-primary" onclick="toggleDevis()">✦ Créer un devis à partir de ces tarifs</button>
-    <button class="btn-ghost" onclick="printSim()">Imprimer ce récapitulatif</button>
-  </div>
- 
-  <!-- FORMULAIRE DEVIS -->
-  <p class="section-label" id="devis-anchor" style="display:none">Devis</p>
-  <div class="devis-panel" id="devis-panel">
-    <div class="devis-panel-title">Informations du devis</div>
- 
-    <!-- Prestataire -->
-    <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px">Vos coordonnées <span style="font-weight:400;text-transform:none;letter-spacing:0">(sauvegardées localement)</span></div>
-    <div class="form-grid">
-      <div class="form-group">
-        <label class="form-label" for="pre-nom">Nom / Raison sociale</label>
-        <input class="form-input" id="pre-nom" type="text" placeholder="Ex : Amina SAID - Gestion Paie" oninput="savePresta()">
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="pre-siret">N° SIRET</label>
-        <input class="form-input" id="pre-siret" type="text" placeholder="123 456 789 00010" oninput="savePresta()">
-      </div>
-      <div class="form-group full">
-        <label class="form-label" for="pre-adresse">Adresse</label>
-        <input class="form-input" id="pre-adresse" type="text" placeholder="Rue, ville, code postal, Mayotte" oninput="savePresta()">
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="pre-tel">Téléphone</label>
-        <input class="form-input" id="pre-tel" type="text" placeholder="0269 XX XX XX" oninput="savePresta()">
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="pre-email">E-mail</label>
-        <input class="form-input" id="pre-email" type="email" placeholder="vous@exemple.com" oninput="savePresta()">
+
+    <!-- Non-cumul -->
+    <div class="non-cumul">
+      <strong>Réductions non cumulables</strong> — le tarif solidaire (−20 %) et le pack village (−25 %) ne sont pas combinables. Le tarif le plus avantageux pour votre structure s'applique.
+    </div>
+
+    <!-- CE QUI EST INCLUS -->
+    <div class="services-section">
+      <button class="services-toggle" id="services-toggle" onclick="toggleServices()">
+        Ce qui est inclus dans chaque formule
+        <span class="arrow">▼</span>
+      </button>
+      <div class="services-grid" id="services-grid">
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon green">📄</div>
+            <div class="service-title">Bulletins de paie mensuels</div>
+          </div>
+          <div class="service-desc">
+            Chaque mois, nous collectons vos éléments variables (heures, absences, primes) et produisons les bulletins de paie conformes, avec calcul des cotisations CSSM spécifiques à Mayotte.
+          </div>
+          <div class="service-scope">Engagement : bulletins remis avant le dernier jour ouvré du mois</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon blue">📡</div>
+            <div class="service-title">Déclarations CSSM & DSN</div>
+          </div>
+          <div class="service-desc">
+            Transmission mensuelle de la DSN (Déclaration Sociale Nominative) sur net-entreprises.fr, vérification des cotisations CSSM, gestion des retours et corrections d'anomalies le cas échéant.
+          </div>
+          <div class="service-scope">Engagement : déclaration transmise dans les délais légaux chaque mois</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon amber">📋</div>
+            <div class="service-title">Attestations employeur</div>
+          </div>
+          <div class="service-desc">
+            Établissement des documents liés à la vie du contrat : attestation Pôle emploi (fin de contrat), attestation de salaire CSSM (arrêt maladie, maternité), certificat de travail et solde de tout compte.
+          </div>
+          <div class="service-scope">Engagement : documents produits sous 48h ouvrées après demande</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon green">💬</div>
+            <div class="service-title">Assistance RH de base</div>
+          </div>
+          <div class="service-desc">
+            Réponses à vos questions courantes : renouvellement de CDD, déclaration d'un arrêt maladie, calcul de préavis, obligations légales. Idéal pour les présidents et trésoriers qui n'ont pas de service RH en interne.
+          </div>
+          <div class="service-scope">Cadre : jusqu'à 2 questions par mois · réponse sous 48h</div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-head">
+            <div class="service-icon blue">🗂️</div>
+            <div class="service-title">Suivi administratif courant</div>
+          </div>
+          <div class="service-desc">
+            Veille sur vos dossiers : vérification des affiliations CSSM, alerte sur les échéances de contrats, rappel des obligations (visite médicale, registre du personnel), archivage de vos bulletins.
+          </div>
+          <div class="service-scope">Engagement : alertes proactives par e-mail ou téléphone</div>
+        </div>
+
       </div>
     </div>
- 
-    <hr class="form-section-sep">
- 
-    <!-- Client + meta -->
-    <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px">Client &amp; Références</div>
-    <div class="form-grid">
-      <div class="form-group">
-        <label class="form-label" for="cli-nom">Nom / Raison sociale client</label>
-        <input class="form-input" id="cli-nom" type="text" placeholder="Entreprise  XY">
+
+    <!-- STEP 2 -->
+    <p class="section-label">Adaptez à votre structure</p>
+    <div class="card-box asso-accent">
+
+      <div class="ctrl-row">
+        <span class="ctrl-label">Bulletins / mois</span>
+        <input type="range" min="1" max="25" value="3" id="a-bulletins" step="1" oninput="updateA()">
+        <span class="ctrl-val" id="a-bulletins-out">3</span>
       </div>
-      <div class="form-group">
-        <label class="form-label" for="cli-contact">Contact</label>
-        <input class="form-input" id="cli-contact" type="text" placeholder="M. Dupont">
+      <div style="font-size:11px; color:var(--text-3); margin-top:4px; margin-bottom:4px;" id="a-forfait-label">
+        Forfait Base (1–5 bulletins/mois) — 900 € / an
       </div>
-      <div class="form-group full">
-        <label class="form-label" for="cli-adresse">Adresse client</label>
-        <input class="form-input" id="cli-adresse" type="text" placeholder="Adresse complète">
+
+      <hr class="divider">
+
+      <div class="ctrl-row">
+        <span class="ctrl-label">Salariés en congés payés</span>
+        <input type="range" min="0" max="15" value="0" id="a-salaries" step="1" oninput="updateA()">
+        <span class="ctrl-val" id="a-salaries-out">0</span>
       </div>
-      <div class="form-group">
-        <label class="form-label" for="dv-num">N° de devis</label>
-        <input class="form-input" id="dv-num" type="text" placeholder="DV-2025-001">
+      <div style="font-size:11px; color:var(--text-3); margin-top:4px;" id="a-cp-label">
+        120 € / an / salarié (acquisition, suivi, solde)
       </div>
-      <div class="form-group">
-        <label class="form-label" for="dv-date">Date</label>
-        <input class="form-input" id="dv-date" type="date">
+
+      <hr class="divider">
+
+      <div class="opts-label">Options complémentaires</div>
+      <div class="opt-row">
+        <input type="checkbox" id="a-rh" onchange="updateA()">
+        <label class="opt-label" for="a-rh">Assistance RH renforcée</label>
+        <span class="opt-price">480 € / an</span>
       </div>
-      <div class="form-group">
-        <label class="form-label" for="dv-validite">Validité</label>
-        <input class="form-input" id="dv-validite" type="text" placeholder="30 jours" value="30 jours">
+      <div class="opt-detail">Conseils approfondis, rédaction de courriers RH, gestion de procédures disciplinaires, accompagnement aux prud'hommes — questions illimitées.</div>
+
+      <div class="opt-row">
+        <input type="checkbox" id="a-setup" checked onchange="updateA()">
+        <label class="opt-label" for="a-setup">Mise en place initiale <span class="badge">1 fois</span></label>
+        <span class="opt-price" id="a-setup-price">120 €</span>
       </div>
-      <div class="form-group">
-        <label class="form-label">TVA</label>
-        <div class="tva-row">
-          <label><input type="radio" name="tva" value="0" checked onchange="update()"> Franchise (AE)</label>
-          <label><input type="radio" name="tva" value="8.5" onchange="update()"> 8,5 % (société)</label>
+      <div class="opt-detail">Paramétrage de votre dossier, collecte des informations, création des fiches salariés, reprise de l'historique si nécessaire.</div>
+
+      <div class="opt-row">
+        <input type="checkbox" id="a-reg" onchange="updateA()">
+        <label class="opt-label" for="a-reg">Régularisation annuelle</label>
+        <span class="opt-price">80 €</span>
+      </div>
+      <div class="opt-detail">Solde des congés payés en fin de période, contrôle annuel des cotisations CSSM, traitement des rappels de salaire.</div>
+
+    </div>
+
+    <!-- STEP 3 -->
+    <p class="section-label">Votre estimation annuelle</p>
+    <div class="card-box" id="a-result-card">
+      <div id="a-result"></div>
+
+      <!-- Payment schedule -->
+      <div class="payment-schedule" id="a-payment-schedule">
+        <div class="payment-schedule-title">Facilités de paiement</div>
+        <div class="payment-options" id="a-payment-options">
+          <div class="payment-opt active" data-freq="1" onclick="selectPayment(this)">
+            <div class="payment-opt-label">En 1 fois</div>
+            <div class="payment-opt-amount" id="pay-1x">900 €</div>
+            <div class="payment-opt-freq">à la souscription</div>
+          </div>
+          <div class="payment-opt" data-freq="2" onclick="selectPayment(this)">
+            <div class="payment-opt-label">En 2 fois</div>
+            <div class="payment-opt-amount" id="pay-2x">450 €</div>
+            <div class="payment-opt-freq">par semestre</div>
+          </div>
+          <div class="payment-opt" data-freq="4" onclick="selectPayment(this)">
+            <div class="payment-opt-label">En 4 fois</div>
+            <div class="payment-opt-amount" id="pay-4x">225 €</div>
+            <div class="payment-opt-freq">par trimestre</div>
+          </div>
         </div>
       </div>
+
+      <p class="note">
+        Tarifs HT — Auto-entrepreneur : mentionnez « TVA non applicable – art. 293 B du CGI ».<br>
+        Société : ajoutez 8,5 % TVA applicable à Mayotte.<br>
+        Paiement fractionné sans frais supplémentaires. Mise en place facturée à la souscription.
+      </p>
+      <button class="btn-ghost" onclick="window.print()">Imprimer ce récapitulatif</button>
     </div>
- 
-    <hr class="form-section-sep">
- 
-    <div class="form-group">
-      <label class="form-label" for="dv-notes">Notes / Conditions particulières</label>
-      <textarea class="form-input" id="dv-notes" placeholder="Paiement à 30 jours fin de mois. Acompte de 30 % à la commande. Tarifs valables pour la période convenue."></textarea>
-    </div>
- 
-    <button class="btn-primary" onclick="genererDevis()">⬡ Générer &amp; imprimer le devis</button>
-    <p class="save-note">Vos coordonnées prestataire sont mémorisées dans ce navigateur (pas sur un serveur).</p>
+
   </div>
- 
+
 </main>
- 
+
 <footer>NûrPay · Gestion Paie & Social Mayotte · Tarifs HT · Données traitées uniquement en local</footer>
- 
+
 <script>
-/* ── TIERS ── */
+/* ══════════════════════════════════════
+   MODE TOGGLE
+   ══════════════════════════════════════ */
+function switchMode(mode) {
+  const toggle = document.getElementById('mode-toggle');
+  const btnE = document.getElementById('btn-entreprise');
+  const btnA = document.getElementById('btn-association');
+  const panelE = document.getElementById('panel-entreprise');
+  const panelA = document.getElementById('panel-association');
+  const pill = document.getElementById('mode-pill');
+  const emoji = document.getElementById('header-emoji');
+  const title = document.getElementById('header-title');
+  const sub   = document.getElementById('header-sub');
+
+  toggle.dataset.mode = mode;
+
+  if (mode === 'entreprise') {
+    btnE.classList.add('active'); btnA.classList.remove('active');
+    panelE.classList.add('active'); panelA.classList.remove('active');
+    emoji.textContent = '🪖';
+    title.innerHTML = 'Tarifs Entreprises<br>Paie · CSSM · Gestion RH';
+    sub.textContent = 'Simulez votre tarification mensuelle en quelques secondes.';
+    pill.style.left = btnE.offsetLeft + 'px';
+    pill.style.width = btnE.offsetWidth + 'px';
+  } else {
+    btnA.classList.add('active'); btnE.classList.remove('active');
+    panelA.classList.add('active'); panelE.classList.remove('active');
+    emoji.textContent = '🤝';
+    title.innerHTML = 'Tarifs Associations<br>Paie · CSSM · Gestion RH';
+    sub.textContent = 'Trois formules adaptées aux réalités associatives de Mayotte.';
+    pill.style.left = btnA.offsetLeft + 'px';
+    pill.style.width = btnA.offsetWidth + 'px';
+    updateA();
+  }
+}
+
+function initPill() {
+  const btn = document.getElementById('btn-entreprise');
+  const pill = document.getElementById('mode-pill');
+  pill.style.left = btn.offsetLeft + 'px';
+  pill.style.width = btn.offsetWidth + 'px';
+}
+window.addEventListener('load', initPill);
+window.addEventListener('resize', () => {
+  const mode = document.getElementById('mode-toggle').dataset.mode;
+  const btn = document.getElementById(mode === 'entreprise' ? 'btn-entreprise' : 'btn-association');
+  const pill = document.getElementById('mode-pill');
+  pill.style.left = btn.offsetLeft + 'px';
+  pill.style.width = btn.offsetWidth + 'px';
+});
+
+/* ══════════════════════════════════════
+   ENTREPRISE
+   ══════════════════════════════════════ */
 const tiers = [
-  {min:1,  max:5,   rate:35},
-  {min:6,  max:10,  rate:30},
-  {min:11, max:20,  rate:25},
-  {min:21, max:999, rate:20},
+  {min:1, max:5, rate:35}, {min:6, max:10, rate:30},
+  {min:11, max:20, rate:25}, {min:21, max:999, rate:20},
 ];
 function getRate(n) { return tiers.find(t => n >= t.min && n <= t.max).rate; }
-function getSetupPrice(n) {
-  if (n <= 5)  return 120;
-  if (n <= 10) return 180;
-  if (n <= 20) return 250;
-  return null; // sur devis
-}
-function getAnnuelPrice(n) {
-  if (n <= 5)  return 80;
-  if (n <= 10) return 130;
-  if (n <= 20) return 200;
-  return null; // sur devis
-}
+function getSetupPrice(n) { return n <= 5 ? 120 : n <= 10 ? 180 : n <= 20 ? 250 : null; }
+function getAnnuelPrice(n) { return n <= 5 ? 80 : n <= 10 ? 130 : n <= 20 ? 200 : null; }
 function fmtOpt(p) { return p === null ? 'Sur devis' : fmt(p); }
 function fmt(n) { return n.toLocaleString('fr-FR', {minimumFractionDigits:0}) + ' €'; }
-function fmtDec(n) { return n.toLocaleString('fr-FR', {minimumFractionDigits:2,maximumFractionDigits:2}) + ' €'; }
- 
-/* ── STATE ── */
-let simState = {};
- 
-function update() {
+
+function updateE() {
   const nb   = parseInt(document.getElementById('nb-fiches').value);
   const rate = getRate(nb);
-  const setupPrice  = getSetupPrice(nb);
-  const annuelPrice = getAnnuelPrice(nb);
- 
-  document.getElementById('nb-out').textContent  = nb;
-  document.getElementById('r-nb').textContent    = nb;
-  document.getElementById('r-rate').textContent  = rate;
-  let base = nb * rate;
+  const sp   = getSetupPrice(nb);
+  const ap   = getAnnuelPrice(nb);
+
+  document.getElementById('nb-out').textContent = nb;
+  document.getElementById('r-nb').textContent   = nb;
+  document.getElementById('r-rate').textContent = rate;
+  const base = nb * rate;
   document.getElementById('r-base').textContent = fmt(base);
- 
-  // Mise à jour des labels d'options
-  document.getElementById('opt-setup-price').textContent  = fmtOpt(setupPrice);
-  document.getElementById('opt-annuel-price').textContent = fmtOpt(annuelPrice);
- 
+  document.getElementById('opt-setup-price').textContent  = fmtOpt(sp);
+  document.getElementById('opt-annuel-price').textContent = fmtOpt(ap);
+
   let total = base;
-  const setup  = document.getElementById('opt-setup').checked;
-  const decl   = document.getElementById('opt-decl').checked;
-  const cp     = document.getElementById('opt-cp').checked;
-  const rh     = document.getElementById('opt-rh').checked;
-  const urgent = document.getElementById('opt-urgent').checked;
-  const annuel = document.getElementById('opt-annuel').checked;
- 
-  document.getElementById('line-setup').style.display  = setup  ? '' : 'none';
-  document.getElementById('line-decl').style.display   = decl   ? '' : 'none';
-  document.getElementById('line-cp').style.display     = cp     ? '' : 'none';
-  document.getElementById('line-rh').style.display     = rh     ? '' : 'none';
-  document.getElementById('line-urgent').style.display = urgent ? '' : 'none';
-  document.getElementById('line-annuel').style.display = annuel ? '' : 'none';
- 
-  if (setup)  { document.getElementById('r-setup').textContent = fmtOpt(setupPrice); if (setupPrice !== null) total += setupPrice; }
+  const ck = id => document.getElementById(id).checked;
+  const setup = ck('opt-setup'), decl = ck('opt-decl'), cp = ck('opt-cp');
+  const rh = ck('opt-rh'), urgent = ck('opt-urgent'), annuel = ck('opt-annuel');
+
+  const show = (id, v) => document.getElementById(id).style.display = v ? '' : 'none';
+  show('line-setup', setup); show('line-decl', decl); show('line-cp', cp);
+  show('line-rh', rh); show('line-urgent', urgent); show('line-annuel', annuel);
+
+  if (setup)  { document.getElementById('r-setup').textContent = fmtOpt(sp); if (sp !== null) total += sp; }
   if (decl)   total += 35;
-  if (cp)     { const c = nb * 10; document.getElementById('r-cp').textContent = fmt(c); document.getElementById('r-cp-nb').textContent = nb; total += c; }
+  if (cp)     { const c = nb*10; document.getElementById('r-cp').textContent = fmt(c); document.getElementById('r-cp-nb').textContent = nb; total += c; }
   if (rh)     total += 40;
-  if (urgent) { const u = nb * 10; document.getElementById('r-urgent').textContent = fmt(u); total += u; }
-  if (annuel) { document.getElementById('r-annuel').textContent = fmtOpt(annuelPrice); if (annuelPrice !== null) total += annuelPrice; }
- 
-  const surDevis = (setup && setupPrice === null) || (annuel && annuelPrice === null);
+  if (urgent) { const u = nb*10; document.getElementById('r-urgent').textContent = fmt(u); total += u; }
+  if (annuel) { document.getElementById('r-annuel').textContent = fmtOpt(ap); if (ap !== null) total += ap; }
+
+  const surDevis = (setup && sp === null) || (annuel && ap === null);
   document.getElementById('r-total').textContent = surDevis ? fmt(total) + ' + devis' : fmt(total);
- 
+
   document.querySelectorAll('.tier-card').forEach(c => {
-    const min = parseInt(c.dataset.min), max = parseInt(c.dataset.max);
+    const min = +c.dataset.min, max = +c.dataset.max;
     c.classList.toggle('active', nb >= min && nb <= max);
   });
- 
-  /* Save state for devis */
-  const tvaRate = parseFloat(document.querySelector('input[name="tva"]:checked').value);
-  simState = { nb, rate, base, setup, setupPrice, decl, cp, cpAmt: cp ? nb*10 : 0, rh, urgent, urgentAmt: urgent ? nb*10 : 0, annuel, annuelPrice, totalHT: total, tvaRate, totalTTC: total * (1 + tvaRate/100) };
 }
- 
-/* ── TOGGLE DEVIS PANEL ── */
-function toggleDevis() {
-  const panel  = document.getElementById('devis-panel');
-  const anchor = document.getElementById('devis-anchor');
-  const isOpen = panel.classList.toggle('open');
-  anchor.style.display = isOpen ? '' : 'none';
-  if (isOpen) {
-    panel.scrollIntoView({behavior:'smooth', block:'start'});
-    loadPresta();
-    if (!document.getElementById('dv-date').value) {
-      document.getElementById('dv-date').value = new Date().toISOString().slice(0,10);
-    }
-    if (!document.getElementById('dv-num').value) {
-      const y = new Date().getFullYear();
-      const m = String(new Date().getMonth()+1).padStart(2,'0');
-      document.getElementById('dv-num').value = 'DV-' + y + m + '-001';
-    }
+
+/* ══════════════════════════════════════
+   ASSOCIATIONS
+   ══════════════════════════════════════ */
+let assoForfait = 'normal';
+let lastAssoTotal = 900; // for payment display
+
+const ASSO_LABELS = {
+  normal:    { name: 'Forfait Annuel', cssClass: '', colorClass: '' },
+  solidaire: { name: 'Forfait Solidaire (−20 %)', cssClass: 'is-solidaire', colorClass: 'color-amber' },
+  village:   { name: 'Pack Village (−25 %)', cssClass: 'is-village', colorClass: 'color-orange' },
+};
+
+// Prix de base (plein tarif) par tier, puis on applique la réduction
+const ASSO_FULL_PRICES = { base: 900, plus: 1500, pme: null, volume: null };
+const ASSO_DISCOUNT = { normal: 0, solidaire: 0.20, village: 0.25 };
+const ASSO_SETUP = { base: 120, plus: 180, pme: 250, volume: null };
+
+function getForfaitTier(n) {
+  if (n <= 5)  return 'base';
+  if (n <= 10) return 'plus';
+  if (n <= 20) return 'pme';
+  return 'volume';
+}
+
+function selectAssoCard(el) {
+  document.querySelectorAll('.asso-card').forEach(c => {
+    c.classList.remove('selected', 'is-solidaire', 'is-village');
+  });
+  el.classList.add('selected');
+  assoForfait = el.dataset.forfait;
+  if (assoForfait === 'solidaire') el.classList.add('is-solidaire');
+  if (assoForfait === 'village')   el.classList.add('is-village');
+  updateA();
+
+  // Smooth scroll to simulator
+  document.getElementById('a-bulletins').closest('.card-box').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function updateA() {
+  const nb       = parseInt(document.getElementById('a-bulletins').value);
+  const salaries = parseInt(document.getElementById('a-salaries').value);
+  const rh       = document.getElementById('a-rh').checked;
+  const setup    = document.getElementById('a-setup').checked;
+  const reg      = document.getElementById('a-reg').checked;
+
+  document.getElementById('a-bulletins-out').textContent = nb;
+  document.getElementById('a-salaries-out').textContent  = salaries;
+
+  const tier = getForfaitTier(nb);
+  const tierNames = {
+    base: 'Forfait Base (1–5 bulletins/mois)',
+    plus: 'Forfait + (6–10 bulletins/mois)',
+    pme:  '11–20 bulletins/mois',
+    volume: '21+ bulletins/mois'
+  };
+
+  const fullPrice = ASSO_FULL_PRICES[tier];
+  const discount  = ASSO_DISCOUNT[assoForfait];
+  const basePrice = fullPrice !== null ? Math.round(fullPrice * (1 - discount)) : null;
+
+  // Forfait label with price
+  if (basePrice !== null) {
+    document.getElementById('a-forfait-label').textContent = tierNames[tier] + ' — ' + fmt(basePrice);
+  } else {
+    document.getElementById('a-forfait-label').textContent = tierNames[tier] + ' — tarif sur devis';
   }
-}
- 
-/* ── LOCAL STORAGE – PRESTATAIRE ── */
-function savePresta() {
-  const d = {nom:$('pre-nom'),siret:$('pre-siret'),adresse:$('pre-adresse'),tel:$('pre-tel'),email:$('pre-email')};
-  localStorage.setItem('paie__presta', JSON.stringify(d));
-}
-function loadPresta() {
-  try {
-    const d = JSON.parse(localStorage.getItem('paie__presta') || '{}');
-    if (d.nom)     document.getElementById('pre-nom').value     = d.nom;
-    if (d.siret)   document.getElementById('pre-siret').value   = d.siret;
-    if (d.adresse) document.getElementById('pre-adresse').value = d.adresse;
-    if (d.tel)     document.getElementById('pre-tel').value     = d.tel;
-    if (d.email)   document.getElementById('pre-email').value   = d.email;
-  } catch(e) {}
-}
-function $(id) { return document.getElementById(id)?.value || ''; }
- 
-/* ── LIGNES PRESTATION POUR DEVIS ── */
-function buildLines() {
-  const s = simState;
-  const lines = [];
-  lines.push({desc: `Établissement des bulletins de paie  - ${s.nb} bulletin${s.nb>1?'s':''} (tarif ${s.rate} € / bulletin)`, pu: s.rate, qty: s.nb, total: s.base});
-  if (s.setup)  {
-    if (s.setupPrice !== null) lines.push({desc:'Frais de mise en place (paramétrage, collecte des informations, création des dossiers salariés)', pu:s.setupPrice, qty:1, total:s.setupPrice});
-    else lines.push({desc:'Frais de mise en place (paramétrage, collecte des informations, création des dossiers salariés) — tarif sur devis', pu:0, qty:1, total:0});
+
+  // CP label
+  document.getElementById('a-cp-label').textContent = salaries === 0
+    ? '120 € / an / salarié (acquisition, suivi, solde)'
+    : salaries + ' salarié' + (salaries > 1 ? 's' : '') + ' × 120 € = ' + fmt(salaries * 120) + ' / an';
+
+  // Setup price
+  const setupVal = ASSO_SETUP[tier];
+  document.getElementById('a-setup-price').textContent = setupVal === null ? 'Sur devis' : fmt(setupVal);
+
+  const el   = document.getElementById('a-result');
+  const info = ASSO_LABELS[assoForfait];
+
+  // Sur devis
+  if (basePrice === null || (setup && setupVal === null)) {
+    el.innerHTML = `
+      <div class="asso-r-sur-devis">
+        <p>Volume > 10 bulletins · Tarif sur devis</p>
+        <p>Contactez-nous pour un devis personnalisé adapté à votre association.</p>
+      </div>`;
+    document.getElementById('a-payment-schedule').style.display = 'none';
+    return;
   }
-  if (s.decl)   lines.push({desc:'Déclarations sociales CSSM mensuelle et contrôle des cotisations', pu:35, qty:1, total:35});
-  if (s.cp)     lines.push({desc:`Gestion des congés payés - acquisition, suivi, solde (${s.nb} salarié${s.nb>1?'s':''})`, pu:10, qty:s.nb, total:s.cpAmt});
-  if (s.rh)     lines.push({desc:'Assistance RH mensuelle - questions sociales, attestations, suivi administratif', pu:40, qty:1, total:40});
-  if (s.urgent) lines.push({desc:'Majoration urgence - délai de traitement inférieur à 48h', pu:10, qty:s.nb, total:s.urgentAmt});
-  if (s.annuel) {
-    if (s.annuelPrice !== null) lines.push({desc:'Régularisation annuelle - solde congés payés, contrôle cotisations CSSM, rappels de salaire', pu:s.annuelPrice, qty:1, total:s.annuelPrice});
-    else lines.push({desc:'Régularisation annuelle - solde congés payés, contrôle cotisations CSSM, rappels de salaire — tarif sur devis', pu:0, qty:1, total:0});
+
+  const cpAmt    = salaries * 120;
+  const rhAmt    = rh ? 480 : 0;
+  const regAmt   = reg ? 80 : 0;
+  const setupAmt = setup ? (setupVal || 0) : 0;
+
+  // Total récurrent (hors setup = coût ponctuel)
+  const totalRecurrent = basePrice + cpAmt + rhAmt + regAmt;
+  const totalAvecSetup = totalRecurrent + setupAmt;
+
+  lastAssoTotal = totalRecurrent; // pour le paiement fractionné (on fractionne le récurrent)
+
+  // Build lines
+  let lines = '';
+
+  // Show full price + discount if applicable
+  if (discount > 0) {
+    lines += `<div class="asso-r-line"><span>${tierNames[tier]} (tarif plein)</span><span class="val" style="text-decoration:line-through; color:var(--text-3)">${fmt(fullPrice)}</span></div>`;
+    lines += `<div class="asso-r-line"><span>${info.name}</span><span class="val reduction" style="color:${assoForfait === 'solidaire' ? 'var(--amber-dark)' : 'var(--orange)'}">${fmt(basePrice)}</span></div>`;
+  } else {
+    lines += `<div class="asso-r-line"><span>Forfait Annuel (${tierNames[tier]})</span><span class="val">${fmt(basePrice)}</span></div>`;
   }
-  return lines;
+  if (cpAmt)    lines += `<div class="asso-r-line"><span>Congés payés (${salaries} sal. × 120 €)</span><span class="val">+${fmt(cpAmt)}</span></div>`;
+  if (rhAmt)    lines += `<div class="asso-r-line"><span>Assistance RH renforcée</span><span class="val">+${fmt(rhAmt)}</span></div>`;
+  if (setupAmt) lines += `<div class="asso-r-line"><span>Mise en place initiale <span style="font-size:11px; color:var(--text-3)">(1 fois)</span></span><span class="val">+${fmt(setupAmt)}</span></div>`;
+  if (regAmt)   lines += `<div class="asso-r-line"><span>Régularisation annuelle</span><span class="val">+${fmt(regAmt)}</span></div>`;
+
+  const totalClass = info.cssClass ? 'asso-r-total ' + info.cssClass : 'asso-r-total';
+
+  lines += `<div class="${totalClass}">
+    <span class="label">Total HT / an</span>
+    <span class="val">${fmt(totalAvecSetup)}</span>
+  </div>`;
+
+  if (setupAmt) {
+    lines += `<div style="font-size:11px; color:var(--text-3); margin-top:6px; text-align:right;">dont ${fmt(setupAmt)} de mise en place (non récurrent) — coût annuel récurrent : <strong style="color:var(--text)">${fmt(totalRecurrent)}</strong></div>`;
+  }
+
+  el.innerHTML = lines;
+
+  // Update payment schedule
+  document.getElementById('a-payment-schedule').style.display = '';
+  updatePayment();
 }
- 
-/* ── GÉNÉRER DEVIS (nouvelle fenêtre imprimable) ── */
-function genererDevis() {
-  update();
-  const s = simState;
-  const lines = buildLines();
-  const tvaRate = s.tvaRate;
-  const totalHT = s.totalHT;
-  const tvaAmt  = totalHT * tvaRate / 100;
-  const totalTTC = totalHT + tvaAmt;
- 
-  const preNom     = $('pre-nom')     || '[Prestataire]';
-  const preSiret   = $('pre-siret');
-  const preAdresse = $('pre-adresse');
-  const preTel     = $('pre-tel');
-  const preEmail   = $('pre-email');
-  const cliNom     = $('cli-nom')     || '[Client]';
-  const cliContact = $('cli-contact');
-  const cliAdresse = $('cli-adresse');
-  const dvNum      = $('dv-num')      || 'DV-XXX';
-  const dvDate     = formatDate($('dv-date'));
-  const dvVal      = $('dv-validite') || '30 jours';
-  const notes      = $('dv-notes');
- 
-  const linesHTML = lines.map(l => `
-    <tr>
-      <td style="padding:10px 14px;font-size:13px;color:#1A3352;line-height:1.5">${l.desc}</td>
-      <td style="padding:10px 14px;text-align:center;font-size:13px;color:#5A6B7E">${l.qty}</td>
-      <td style="padding:10px 14px;text-align:right;font-size:13px;color:#5A6B7E">${fmtDec(l.pu)}</td>
-      <td style="padding:10px 14px;text-align:right;font-size:13px;font-weight:600;color:#1A3352">${fmtDec(l.total)}</td>
-    </tr>`).join('');
- 
-  const tvaLine = tvaRate > 0
-    ? `<tr><td colspan="3" style="padding:6px 14px;text-align:right;font-size:12px;color:#5A6B7E">TVA ${tvaRate} %</td><td style="padding:6px 14px;text-align:right;font-size:12px;color:#5A6B7E">${fmtDec(tvaAmt)}</td></tr>`
-    : `<tr><td colspan="4" style="padding:6px 14px;font-size:11px;color:#8B9DB0;font-style:italic">TVA non applicable - article 293 B du CGI (franchise en base)</td></tr>`;
- 
-  const ttcLine = tvaRate > 0
-    ? `<tr style="background:#0D1F35"><td colspan="3" style="padding:12px 14px;text-align:right;font-family:'Georgia',serif;font-size:14px;font-weight:600;color:#fff">Total TTC</td><td style="padding:12px 14px;text-align:right;font-family:'Georgia',serif;font-size:18px;font-weight:700;color:#F0C040">${fmtDec(totalTTC)}</td></tr>`
-    : '';
- 
-  const notesHTML = notes ? `<div style="margin-top:28px;padding:14px;background:#F2F5F9;border-radius:8px;font-size:12px;color:#5A6B7E;line-height:1.7"><strong style="color:#0D1F35">Notes &amp; Conditions :</strong><br>${notes.replace(/\n/g,'<br>')}</div>` : '';
- 
-  const html = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
-<title>Devis ${dvNum}</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap');
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Inter',sans-serif;background:#fff;color:#0D1F35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  @page{margin:18mm 16mm;size:A4}
-  @media print{.no-print{display:none!important}}
-  table{border-collapse:collapse;width:100%}
-  tr:nth-child(even){background:#F8FAFC}
-</style></head><body>
-<div style="max-width:720px;margin:0 auto;padding:32px 0 48px">
- 
-  <!-- STRIPE -->
-  <div style="height:5px;background:repeating-linear-gradient(90deg,#F0C040 0,#F0C040 24px,#0D1F35 24px,#0D1F35 32px);margin-bottom:28px;border-radius:2px"></div>
- 
-  <!-- HEADER -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:32px">
-    <div>
-      <div style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8B9DB0;margin-bottom:4px">Devis</div>
-      <div style="font-family:'DM Serif Display',Georgia,serif;font-size:34px;color:#0D1F35;line-height:1">${dvNum}</div>
-      <div style="font-size:12px;color:#5A6B7E;margin-top:6px">Émis le ${dvDate} · Validité : ${dvVal}</div>
-    </div>
-    <div style="text-align:right">
-      <div style="font-size:14px;font-weight:600;color:#0D1F35">${preNom}</div>
-      ${preSiret   ? `<div style="font-size:11px;color:#8B9DB0;margin-top:2px">SIRET ${preSiret}</div>` : ''}
-      ${preAdresse ? `<div style="font-size:12px;color:#5A6B7E;margin-top:4px">${preAdresse}</div>` : ''}
-      ${preTel     ? `<div style="font-size:12px;color:#5A6B7E;margin-top:2px">${preTel}</div>` : ''}
-      ${preEmail   ? `<div style="font-size:12px;color:#5A6B7E">${preEmail}</div>` : ''}
-    </div>
-  </div>
- 
-  <!-- CLIENT -->
-  <div style="background:#F2F5F9;border-radius:10px;padding:16px 18px;margin-bottom:28px">
-    <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8B9DB0;margin-bottom:6px">Devis établi pour</div>
-    <div style="font-size:14px;font-weight:600;color:#0D1F35">${cliNom}</div>
-    ${cliContact ? `<div style="font-size:12px;color:#5A6B7E;margin-top:2px">À l'attention de : ${cliContact}</div>` : ''}
-    ${cliAdresse ? `<div style="font-size:12px;color:#5A6B7E;margin-top:2px">${cliAdresse}</div>` : ''}
-  </div>
- 
-  <!-- OBJET -->
-  <div style="font-size:12px;font-weight:600;color:#8B9DB0;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Prestations</div>
-  <table style="margin-bottom:0">
-    <thead>
-      <tr style="background:#0D1F35">
-        <th style="padding:10px 14px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff">Description</th>
-        <th style="padding:10px 14px;text-align:center;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap">Qté</th>
-        <th style="padding:10px 14px;text-align:right;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap">P.U. HT</th>
-        <th style="padding:10px 14px;text-align:right;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap">Total HT</th>
-      </tr>
-    </thead>
-    <tbody>${linesHTML}</tbody>
-    <tfoot>
-      <tr style="border-top:2px solid #DDE3EC">
-        <td colspan="3" style="padding:12px 14px;text-align:right;font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:#0D1F35">Total HT</td>
-        <td style="padding:12px 14px;text-align:right;font-family:'DM Serif Display',Georgia,serif;font-size:20px;color:#1A5FA5;font-weight:600">${fmtDec(totalHT)}</td>
-      </tr>
-      ${tvaLine}
-      ${ttcLine}
-    </tfoot>
-  </table>
- 
-  ${notesHTML}
- 
-  <!-- SIGNATURE -->
-  <div style="display:flex;gap:28px;margin-top:40px;flex-wrap:wrap">
-    <div style="flex:1;min-width:200px">
-      <div style="font-size:11px;font-weight:600;color:#8B9DB0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:32px">Bon pour accord - Client</div>
-      <div style="border-top:1px solid #C4CEDB;padding-top:8px;font-size:11px;color:#8B9DB0">Date &amp; Signature</div>
-    </div>
-    <div style="flex:1;min-width:200px">
-      <div style="font-size:11px;font-weight:600;color:#8B9DB0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:32px">Le prestataire</div>
-      <div style="border-top:1px solid #C4CEDB;padding-top:8px;font-size:11px;color:#8B9DB0">${preNom}</div>
-    </div>
-  </div>
- 
-  <div style="height:5px;background:repeating-linear-gradient(90deg,#F0C040 0,#F0C040 24px,#0D1F35 24px,#0D1F35 32px);margin-top:40px;border-radius:2px"></div>
- 
-  <!-- PRINT BTN -->
-  <div class="no-print" style="text-align:center;margin-top:28px">
-    <button onclick="window.print()" style="background:#F0C040;color:#0D1F35;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;border:none;border-radius:8px;padding:13px 32px;cursor:pointer">🖨 Imprimer / Enregistrer en PDF</button>
-    <p style="font-size:11px;color:#8B9DB0;margin-top:10px">Sur mobile : Partager → Imprimer → Enregistrer en PDF</p>
-  </div>
- 
-</div>
-</body></html>`;
- 
-  const w = window.open('', '_blank');
-  w.document.write(html);
-  w.document.close();
+
+/* ── PAYMENT FREQUENCY ── */
+function selectPayment(el) {
+  document.querySelectorAll('.payment-opt').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+  // Apply color class
+  const colorClass = ASSO_LABELS[assoForfait].colorClass;
+  document.querySelectorAll('.payment-opt').forEach(o => {
+    o.classList.remove('color-amber', 'color-orange');
+    if (o.classList.contains('active') && colorClass) o.classList.add(colorClass);
+  });
 }
- 
-/* ── PRINT SIM (récapitulatif simple) ── */
-function printSim() {
-  window.print();
+
+function updatePayment() {
+  const total = lastAssoTotal;
+  const colorClass = ASSO_LABELS[assoForfait].colorClass;
+
+  document.getElementById('pay-1x').textContent = fmt(total);
+  document.getElementById('pay-2x').textContent = fmt(Math.ceil(total / 2));
+  document.getElementById('pay-4x').textContent = fmt(Math.ceil(total / 4));
+
+  // Apply color to active payment opt
+  document.querySelectorAll('.payment-opt').forEach(o => {
+    o.classList.remove('color-amber', 'color-orange');
+    if (o.classList.contains('active') && colorClass) o.classList.add(colorClass);
+  });
 }
- 
-/* ── DATE FORMATTING ── */
-function formatDate(str) {
-  if (!str) return new Date().toLocaleDateString('fr-FR');
-  const [y,m,d] = str.split('-');
-  return `${d}/${m}/${y}`;
-}
- 
+
 /* ── INIT ── */
-update();
+updateE();
+updateA();
+
+/* ── TOGGLE SERVICES DETAIL ── */
+function toggleServices() {
+  document.getElementById('services-toggle').classList.toggle('open');
+  document.getElementById('services-grid').classList.toggle('open');
+}
+function toggleServicesE() {
+  document.getElementById('services-toggle-e').classList.toggle('open');
+  document.getElementById('services-grid-e').classList.toggle('open');
+}
 </script>
 </body>
 </html>
